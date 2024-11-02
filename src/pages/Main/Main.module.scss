@@ -1,0 +1,15 @@
+@import "src/app/styles/variables.scss";
+
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: $secondaryBackground;
+    color: $color;
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 5vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}

@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cbf77be2.css",
+    "main.js": "/static/js/main.bccff6cb.js",
+    "static/js/453.70514826.chunk.js": "/static/js/453.70514826.chunk.js",
+    "static/media/wheel.png": "/static/media/wheel.53cc10b7da29ed31c6ff.png",
+    "static/media/Inter-MediumItalic.woff": "/static/media/Inter-MediumItalic.77701c0d49c4839112aa.woff",
+    "static/media/Inter-Bold.woff": "/static/media/Inter-Bold.3cf58596269ad13bb894.woff",
+    "static/media/Inter-SemiBold.woff": "/static/media/Inter-SemiBold.088d3cf02a1f2a85127c.woff",
+    "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.e369b71584c45eda4869.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.d92cbb210950cc252907.woff",
+    "static/media/Inter-MediumItalic.woff2": "/static/media/Inter-MediumItalic.75fcad7b3d70dd975270.woff2",
+    "static/media/Inter-Bold.woff2": "/static/media/Inter-Bold.5055fedf1fc1dfae80aa.woff2",
+    "static/media/Inter-SemiBold.woff2": "/static/media/Inter-SemiBold.6ba02431a98484a2cbde.woff2",
+    "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.e11c789edffb34e94493.woff2",
+    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c0db08626b6256071bdc.woff2",
+    "static/media/SFMono-Semibold.woff": "/static/media/SFMono-Semibold.5c67899b317ba09dd594.woff",
+    "static/media/SFMono-Bold.woff": "/static/media/SFMono-Bold.fd3ca53de3d4eb8a6d48.woff",
+    "static/media/SFMono-Regular.woff": "/static/media/SFMono-Regular.5a303f62fec02e0506cd.woff",
+    "static/media/SFMono-Bold.woff2": "/static/media/SFMono-Bold.02dac400b447cb482688.woff2",
+    "static/media/SFMono-Semibold.woff2": "/static/media/SFMono-Semibold.632b3abec31323f2abec.woff2",
+    "static/media/SFMono-Regular.woff2": "/static/media/SFMono-Regular.92b3bfd7c444a5042a43.woff2",
+    "static/media/icon-instagram.png": "/static/media/icon-instagram.3c5b29ae93ef24296b7f.png",
+    "static/media/logo.png": "/static/media/logo.437962577669a482651c.png",
+    "static/media/placeholder.png": "/static/media/placeholder.bc37843bb0f369393200.png",
+    "static/media/fortune.png": "/static/media/fortune.4307a9a099679b2a753c.png",
+    "index.html": "/index.html",
+    "main.cbf77be2.css.map": "/static/css/main.cbf77be2.css.map",
+    "main.bccff6cb.js.map": "/static/js/main.bccff6cb.js.map",
+    "453.70514826.chunk.js.map": "/static/js/453.70514826.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbf77be2.css",
+    "static/js/main.bccff6cb.js"
+  ]
+}
