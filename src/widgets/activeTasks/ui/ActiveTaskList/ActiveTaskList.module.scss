@@ -1,11 +1,14 @@
 .root {
-    position: absolute;
-    top: 50px;
-    left: 0;
+    position: fixed;
+    width: calc(100% - 40px);
+    top: 28vh;
+    height: calc(72vh - 100px);
+    left: 20px;
+    flex: 1 1;
+    overflow-y: scroll;
 
     flex: 1;
     overflow-y: scroll;
-    width: 100%;
 }
 
 .item + .item {
