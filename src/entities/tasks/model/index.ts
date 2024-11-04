@@ -33,7 +33,6 @@ const activeTasksSlice = createSlice({
                 state.isPending = true
             })
             .addCase(fetchTasks.fulfilled, (state, action) => {
-                console.log('fetchTasks.fulfilled')
                 state.list = action.payload.payload
                 state.isPending = false
             })
@@ -48,3 +47,4 @@ export const activeTasksModel = {
     }
 }
 export * from './lib'
+export * from './poolModule'

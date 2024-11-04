@@ -42,5 +42,24 @@ export const activeTaskApi: ActiveTasksApi = {
             error: false,
             payload: getList()
         }
+    },
+    fetchExpand: async id => {
+        await new Promise(resolve => setTimeout(resolve, 3_000))
+
+        return {
+            error: false,
+            payload: {
+                id: Number(id),
+                title: 'Autonomous Driving',
+                description: `Your smartphone's power helps move AI progress forward. With OORT DataHub, your device aids in processing datasets that revolutionize our world and make it a better and safer place with AI technology. Together, we're moving humanity forward.`,
+                img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
+                exampleImg: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
+                details: 'Please label the road signs, your effort will help make autonomous driving safer.',
+                reward: getRandomInt(1_000, 10_000),
+                fileSize: 'Up to 3MB',
+                duration: getRandomInt(1, 5) * 60000 as TimeStamp,
+                task: 'Please take a picture that looks similar to the example above.'
+            }
+        }
     }
 }

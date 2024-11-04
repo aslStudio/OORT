@@ -43,6 +43,13 @@
     overflow: hidden;
 }
 
+.description {
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 24px;
+}
+
 .details-title {
     font-size: 21px;
     line-height: 28px;
@@ -57,10 +64,11 @@
     margin-top: 16px;
 }
 
-.floating-button {
-    display: flex;
-    justify-content: space-between;
+.details-card {
+    margin-top: 24px;
+}
 
+.floating-button {
     position: fixed;
     left: 0;
     bottom: 80px;
@@ -70,8 +78,4 @@
     background: #fff;
     box-shadow: 0 -1px 8px 0 rgba(39, 39, 39, 0.08);
     border-radius: 16px 16px 0 0;
-}
-
-.floating-button-item {
-    width: calc(50% - 4px);
 }

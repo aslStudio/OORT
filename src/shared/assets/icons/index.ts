@@ -11,6 +11,9 @@ import Home from './home.svg'
 import Referrals from './referrals.svg'
 import Challenges from './challenges.svg'
 import Leaderboard from './leaderboard.svg'
+import Reward from './reward.svg'
+import Duration from './duration.svg'
+import FileSize from './file-size.svg'
 
 export const icons = {
     'chevron-right-outline': RightChevron,
@@ -26,4 +29,7 @@ export const icons = {
     'referrals': Referrals,
     'challenges': Challenges,
     'leaderboard': Leaderboard,
+    'reward': Reward,
+    'duration': Duration,
+    'file-size': FileSize,
 }

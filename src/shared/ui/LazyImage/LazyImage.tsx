@@ -35,15 +35,13 @@ export const LazyImage: React.FC<LazyImageProps> = ({
 
     return (
         <div className={classes}>
-            <TransitionFade 
-                className={classes}
-            >
+            <TransitionFade className={styles.wrapper}>
                 {isLoading && (
                     <SkeletonWrapper className={styles.wrapper}>
                         <div
                             className={styles.skeleton} 
                             style={{
-                                height: `${skeletonMinHeight}px`,
+                                minHeight: `${skeletonMinHeight}px`,
                             }}
                         />
                     </SkeletonWrapper>

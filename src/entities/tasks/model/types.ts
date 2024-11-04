@@ -11,3 +11,16 @@ export type ActiveTaskItem = {
     price: number
     duration: TimeStamp
 }
+
+export type ExpandTask = {
+    id: number
+    title: string
+    img: string
+    exampleImg: string
+    description: string
+    task: string
+    details: string
+    reward: number
+    fileSize: string
+    duration: TimeStamp
+}

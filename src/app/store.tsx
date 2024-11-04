@@ -1,4 +1,4 @@
-import { activeTasksModel } from '@/entities/tasks'
+import { activeTasksModel, expandTasksModel } from '@/entities/tasks'
 import { balanceModel } from '@/widgets/balance'
 import { configureStore } from '@reduxjs/toolkit'
 import React from 'react'
@@ -8,6 +8,7 @@ const store = configureStore({
     reducer: {
         balance: balanceModel.reducer,
         activeTasks: activeTasksModel.reducer,
+        expandTasks: expandTasksModel.reducer,
     }
 })
 

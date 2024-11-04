@@ -43,6 +43,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({
 
     return (
         <Link
+            className={classes}
             to={to ?? ''}
         >
             {children}

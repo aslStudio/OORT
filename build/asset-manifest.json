@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d8a4717b.css",
-    "main.js": "/static/js/main.f61518c1.js",
+    "main.css": "/static/css/main.f7c57c07.css",
+    "main.js": "/static/js/main.91f43f9d.js",
     "static/js/453.2c396120.chunk.js": "/static/js/453.2c396120.chunk.js",
     "static/media/Inter-Bold.woff": "/static/media/Inter-Bold.3cf58596269ad13bb894.woff",
     "static/media/Inter-SemiBold.woff": "/static/media/Inter-SemiBold.088d3cf02a1f2a85127c.woff",
@@ -15,23 +15,26 @@
     "static/media/referrals.svg": "/static/media/referrals.51ecf610d8aa098d52eceb80a7daff20.svg",
     "static/media/share-outline.svg": "/static/media/share-outline.1a9b89ac0f2207b15f16ff1528655f5a.svg",
     "static/media/leaderboard.svg": "/static/media/leaderboard.072ab4fb9038359882adf18304e6d226.svg",
+    "static/media/file-size.svg": "/static/media/file-size.f108bd1b766cbbd0bc56fbae39fc64d3.svg",
     "static/media/image.svg": "/static/media/image.9d624e9a28eab2efae62c0adb999c355.svg",
     "static/media/challenges.svg": "/static/media/challenges.2925807bfdd7f91fbc45e774d2e495b6.svg",
     "static/media/coins.svg": "/static/media/coins.efd08e29d6e41cc819fd84fcadadef04.svg",
+    "static/media/duration.svg": "/static/media/duration.b723de5aae0402a828e51237df147ffd.svg",
     "static/media/copy-outline.svg": "/static/media/copy-outline.0d37886640fd9551153120bbcce93d9f.svg",
     "static/media/clock.svg": "/static/media/clock.ff02b0ed5439664553e8d55b4579ba30.svg",
     "static/media/home.svg": "/static/media/home.d9b62075779e779122f97e7efbefaace.svg",
     "index.html": "/index.html",
+    "static/media/reward.svg": "/static/media/reward.9d3e09dacf249cd7d68bcfc1ce7f61c5.svg",
     "static/media/audio.svg": "/static/media/audio.a47d35f813702bf990d5cc2588fe9026.svg",
     "static/media/video.svg": "/static/media/video.891d816d7de22d57c097b26fad87caa5.svg",
     "static/media/checked.svg": "/static/media/checked.768e92b9ea3f7e8c6a4429e57560aad3.svg",
     "static/media/chevron-right-outline.svg": "/static/media/chevron-right-outline.c1c065e125772260bb8eb7609e6822aa.svg",
-    "main.d8a4717b.css.map": "/static/css/main.d8a4717b.css.map",
-    "main.f61518c1.js.map": "/static/js/main.f61518c1.js.map",
+    "main.f7c57c07.css.map": "/static/css/main.f7c57c07.css.map",
+    "main.91f43f9d.js.map": "/static/js/main.91f43f9d.js.map",
     "453.2c396120.chunk.js.map": "/static/js/453.2c396120.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8a4717b.css",
-    "static/js/main.f61518c1.js"
+    "static/css/main.f7c57c07.css",
+    "static/js/main.91f43f9d.js"
   ]
 }

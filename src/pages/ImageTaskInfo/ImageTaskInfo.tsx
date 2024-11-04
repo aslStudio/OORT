@@ -1,20 +1,20 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { AppDispatch, RootState } from "@/app/store"
+import { AppDispatch, RootState } from '@/app/store'
 
-import { expandTasksModel } from "@/entities/tasks"
+import { expandTasksModel } from '@/entities/tasks'
 
-import { useTelegram } from "@/shared/lib/hooks/useTelegram"
-import { images } from "@/shared/assets/images"
-import { TransitionFade } from "@/shared/ui/TransitionFade"
+import { TransitionFade } from '@/shared/ui/TransitionFade'
+import { useTelegram } from '@/shared/lib/hooks/useTelegram'
+import { images } from '@/shared/assets/images'
 
 import { Content } from './Content'
 import { Skeleton } from './Skeleton'
-import styles from './ImageTask.module.scss'
+import styles from './ImageTaskInfo.module.scss'
 
-export const ImageTask = () => {
+export const ImageTaskInfo = () => {
     const params = useParams()
 
     const { isPending } = useSelector((state: RootState) => state.expandTasks)
@@ -35,11 +35,13 @@ export const ImageTask = () => {
                 alt='page decoration'
             />
             <TransitionFade>
-                {isPending && <Skeleton />}
                 {!isPending && (
                     <Content 
                         id={Number(params.id)}
                     />
+                )}
+                {isPending && (
+                    <Skeleton />
                 )}
             </TransitionFade>
         </div>

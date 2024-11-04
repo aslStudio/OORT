@@ -1,19 +1,22 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { AppDispatch, RootState } from "@/app/store";
+import { RootState } from "@/app/store";
 
-import { ActiveTaskCard, ActiveTaskCardSkeleton, activeTasksModel } from "@/entities/tasks";
+import { ActiveTaskCard, ActiveTaskCardSkeleton } from "@/entities/tasks";
 
-import { PropsDefault } from "@/shared/lib/types";
+import { PropsDefault, RouterPathes } from "@/shared/lib/types";
 import { TransitionFade } from "@/shared/ui/TransitionFade";
+import { SkeletonWrapper } from "@/shared/ui/SkeletonWrapper";
 
 import styles from './ActiveTaskList.module.scss'
-import { SkeletonWrapper } from "@/shared/ui/SkeletonWrapper";
 
 export const ActiveTaskList: React.FC<PropsDefault> = ({
     className
 }) => {
+    const navigate = useNavigate()
+
     const { 
         list, 
         isPending 
@@ -38,7 +41,9 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                                 key={item.id}
                                 className={styles.item}
                                 {...item}
-                                onClick={() => {}}
+                                onClick={() => {
+                                    navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
+                                }}
                             />
                         ))}
                     </div>

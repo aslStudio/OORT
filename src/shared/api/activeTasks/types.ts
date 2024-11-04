@@ -14,6 +14,25 @@ export type FetchActiveTasksResponse = ResponseDefault<{
 
 export type FetchActiveTasksParams = TaskType | 'all'
 
+export type FetchExpandTaskResponse = ResponseDefault<{
+    id: number
+    title: string
+    img: string
+    description: string
+    details: string
+    reward: number
+    fileSize: string
+    duration: TimeStamp
+    exampleImg: string
+    task: string
+}>
+
+
+export type FetchExpandTaskParams = {
+    id: number
+}
+
 export type ActiveTasksApi = {
     fetch: (params: FetchActiveTasksParams) => Promise<FetchActiveTasksResponse>
+    fetchExpand: (params: FetchActiveTasksParams) => Promise<FetchExpandTaskResponse>
 }
