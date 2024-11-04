@@ -29,7 +29,15 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
 
     return (
         <div className={classes}>
-            {!isPending && (
+            <SkeletonWrapper key={'notIsPending'}>
+                {Array(3).fill(1).map((_, key) => (
+                    <ActiveTaskCardSkeleton 
+                        key={key}
+                        className={styles.item}
+                    />
+                ))}
+            </SkeletonWrapper>
+            {/* {!isPending && (
                 <div key={'isPending'}>
                     {list.map(item => (
                         <ActiveTaskCard 
@@ -52,7 +60,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                         />
                     ))}
                 </SkeletonWrapper>
-            )}
+            )} */}
         </div>
     )
 }
