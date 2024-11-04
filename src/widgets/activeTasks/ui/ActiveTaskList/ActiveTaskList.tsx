@@ -29,32 +29,30 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
 
     return (
         <div className={classes}>
-            <TransitionFade>
-                {!isPending && (
-                    <div key={'isPending'}>
-                        {list.map(item => (
-                            <ActiveTaskCard 
-                                key={item.id}
-                                className={styles.item}
-                                {...item}
-                                onClick={() => {
-                                    navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
-                                }}
-                            />
-                        ))}
-                    </div>
-                )}
-                {isPending && (
-                    <SkeletonWrapper key={'notIsPending'}>
-                        {Array(3).fill(1).map((_, key) => (
-                            <ActiveTaskCardSkeleton 
-                                key={key}
-                                className={styles.item}
-                            />
-                        ))}
-                    </SkeletonWrapper>
-                )}
-            </TransitionFade>
+            {!isPending && (
+                <div key={'isPending'}>
+                    {list.map(item => (
+                        <ActiveTaskCard 
+                            key={item.id}
+                            className={styles.item}
+                            {...item}
+                            onClick={() => {
+                                navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
+            {isPending && (
+                <SkeletonWrapper key={'notIsPending'}>
+                    {Array(3).fill(1).map((_, key) => (
+                        <ActiveTaskCardSkeleton 
+                            key={key}
+                            className={styles.item}
+                        />
+                    ))}
+                </SkeletonWrapper>
+            )}
         </div>
     )
 }
