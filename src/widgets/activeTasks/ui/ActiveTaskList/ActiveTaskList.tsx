@@ -28,30 +28,8 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
     ].join(' ').trim()
 
     return (
-        <div className={classes}>
-            {/* <div key={'isPending'}>
-                {list.map(item => (
-                    <ActiveTaskCard 
-                        key={item.id}
-                        className={styles.item}
-                        {...item}
-                        onClick={() => {
-                            navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
-                        }}
-                    />
-                ))}
-            </div> */}
-            {list.map(item => (
-                <ActiveTaskCard 
-                    key={item.id}
-                    className={styles.item}
-                    {...item}
-                    onClick={() => {
-                        navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
-                    }}
-                />
-            ))}
-            {/* {!isPending && (
+        <TransitionFade className={classes}>
+            {!isPending && (
                 <div key={'isPending'}>
                     {list.map(item => (
                         <ActiveTaskCard 
@@ -74,7 +52,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                         />
                     ))}
                 </SkeletonWrapper>
-            )} */}
-        </div>
+            )}
+        </TransitionFade>
     )
 }
