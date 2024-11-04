@@ -1,17 +1,6 @@
 @import "variables";
 
 $mainFontFamily: 'Inter';
-$italicFontFamily: 'InterItalic';
-$monoFontFamily: 'SFMono';
-
-@font-face {
-    font-family: $italicFontFamily;
-    src: 
-            local('ItalicFontFamily'),
-            url("../../shared/assets/fonts/Inter-MediumItalic.woff") format('woff'),
-            url("../../shared/assets/fonts/Inter-MediumItalic.woff2") format('woff2');
-    font-weight: 500;
-}
 
 @font-face {
     font-family: $mainFontFamily;
@@ -46,33 +35,6 @@ $monoFontFamily: 'SFMono';
             local('MainFont'),
             url("../../shared/assets/fonts/Inter-Bold.woff") format('woff'),
             url("../../shared/assets/fonts/Inter-Bold.woff2") format('woff2');
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: $monoFontFamily;
-    src:
-            local('MonoFontFamily'),
-            url("../../shared/assets/fonts/SFMono-Regular.woff") format('woff'),
-            url("../../shared/assets/fonts/SFMono-Regular.woff2") format('woff2');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: $monoFontFamily;
-    src:
-            local('MonoFontFamily'),
-            url("../../shared/assets/fonts/SFMono-Semibold.woff") format('woff'),
-            url("../../shared/assets/fonts/SFMono-Semibold.woff2") format('woff2');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: $monoFontFamily;
-    src:
-            local('MonoFontFamily'),
-            url("../../shared/assets/fonts/SFMono-Bold.woff") format('woff'),
-            url("../../shared/assets/fonts/SFMono-Bold.woff2") format('woff2');
     font-weight: 700;
 }
 

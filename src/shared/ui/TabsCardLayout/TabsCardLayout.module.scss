@@ -1,0 +1,43 @@
+.root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    width: 50%;
+
+    text-align: center;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    border-radius: 20px 20px 0 0;
+
+    background-color: rgba(255, 255, 255, 0);
+
+    border: none;
+    outline: none;
+
+    transition: 0.3s ease;
+    transition-property: background-color;
+}
+
+.is-active {
+    background: #fff;
+}
+
+.wrapper {
+    background: #fff;
+    padding: 24px 20px 24px 20px;
+    flex: 1;
+    overflow-y: scroll;
+}

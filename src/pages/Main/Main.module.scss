@@ -5,11 +5,21 @@
     top: 0;
     left: 0;
 
-    background-color: $secondaryBackground;
+    display: flex;
+    flex-direction: column;
+
+    background: #f7f7f8;
     color: $color;
     width: 100vw;
-    height: 100vh;
-    padding-bottom: 5vh;
+    height: calc(100vh - 80px);
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-y: hidden;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
 }

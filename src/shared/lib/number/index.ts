@@ -8,6 +8,11 @@ export function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min;
 }
 
+export function getRandomDecimal(min: number, max: number) {
+    const randomNum = Math.random() * (max - min) + min;
+    return parseFloat(randomNum.toFixed(2));
+}
+
 export function toFormattedNumber(value: number) {
     let newValue = ''
 
@@ -16,14 +21,14 @@ export function toFormattedNumber(value: number) {
         ~removeSpaces.indexOf(',') || ~removeSpaces.indexOf('.')
     const withFractions = parseFloat(removeSpaces.replace(',', '.'))
         .toFixed(2)
-        .replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
     if (isHasFractions) {
         newValue = withFractions
     } else {
         newValue = parseInt(removeSpaces, 10)
             .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
     }
 
     return newValue

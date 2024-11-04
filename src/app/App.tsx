@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {BrowserRouter} from "react-router-dom";
 
 import {useTelegram} from "@/shared/lib/hooks/useTelegram";
+import {KeyboardOffsetProvider} from "@/shared/lib/providers";
 
 import { RouterView } from './router'
-import {KeyboardOffsetProvider} from "@/shared/lib/providers";
+import { StoreProvider } from './store'
+import { TabBar } from '@/widgets/TabBar';
 
 function App() {
     const { expand, disableVerticalSwipes } = useTelegram()
@@ -14,13 +16,16 @@ function App() {
         disableVerticalSwipes()
     });
 
-  return (
-      <KeyboardOffsetProvider>
-          <BrowserRouter>
-              <RouterView />
-          </BrowserRouter>
-      </KeyboardOffsetProvider>
-  );
+    return (
+        <StoreProvider>
+            <KeyboardOffsetProvider>
+                <BrowserRouter>
+                    <RouterView />
+                    <TabBar />
+                </BrowserRouter>
+            </KeyboardOffsetProvider>
+        </StoreProvider>
+    );
 }
 
 export default App;

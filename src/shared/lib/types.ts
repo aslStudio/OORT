@@ -3,6 +3,19 @@ export type ResponseDefault<T> = {
     payload: T
 }
 
+export type BrandedType<K, T> = K & { __brand: T }
+
 export enum RouterPathes {
     MAIN = '/',
+    OTHER = '/other'
 }
+
+export type PropsDefault<T = unknown> = {
+    className?: string
+} & T
+
+export type PropsDefaultWithChildren<T = unknown> = React.PropsWithChildren<{
+    className?: string
+} & T>
+
+export type TimeStamp = BrandedType<number, 'Timestamp'>
