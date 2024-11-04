@@ -40,11 +40,13 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
     duration,
     onClick
 }) => {
+    const classes = [
+        className ? className : '',
+        styles.root
+    ].join(' ').trim()
+
     return (
-        <div className={[
-            className ? className : '',
-            styles.root
-        ].join(' ').trim()}>
+        <div className={classes}>
             <div className={styles['image-wrapper']}>
                 <Badge 
                     className={styles.type}

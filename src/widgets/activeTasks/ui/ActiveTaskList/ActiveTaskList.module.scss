@@ -4,23 +4,11 @@
     top: 246px;
     height: calc(100vh - 246px);
     left: 20px;
-    flex: 1 1;
     overflow-y: scroll;
 
     box-sizing: border-box;
     padding-top: 20px;
     padding-bottom: 100px;
-
-    flex: 1;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    }
 }
 
 .item + .item {
