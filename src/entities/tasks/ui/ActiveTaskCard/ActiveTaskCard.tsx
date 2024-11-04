@@ -23,6 +23,7 @@ const badgeViewByDifficult: Record<TaskDifficult, BadgeProps['view']> = {
 }
 
 const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
+    className,
     id,
     type,
     img,
@@ -34,7 +35,10 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
     onClick
 }) => {
     return (
-        <div className={styles.root}>
+        <div className={[
+            className ? className : '',
+            styles.root
+        ].join(' ').trim()}>
             <div className={styles['image-wrapper']}>
                 <Badge 
                     className={styles.type}

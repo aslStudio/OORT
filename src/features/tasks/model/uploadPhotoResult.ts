@@ -13,7 +13,13 @@ const uploadSlice = createSlice({
         isSuccess: false,
         refCode: '',
     },
-    reducers: {},
+    reducers: {
+        reset: state => {
+            state.isPending = false
+            state.isSuccess = false
+            state.refCode = ''
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase(upload.pending, state => {
@@ -29,6 +35,7 @@ const uploadSlice = createSlice({
 
 export const uploadPhotoResultModel = {
     reducer: uploadSlice.reducer,
+    actions: uploadSlice.actions,
     thunks: {
         upload,
     }

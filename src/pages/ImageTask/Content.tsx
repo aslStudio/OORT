@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "@/app/store";
@@ -80,6 +80,12 @@ export const Content: React.FC<{
             }))
         }
     }
+
+    useEffect(() => {
+        return () => {
+            dispatch(uploadPhotoResultModel.actions.reset())
+        }
+    }, [])
 
     return (
         <div className={styles.container}>
