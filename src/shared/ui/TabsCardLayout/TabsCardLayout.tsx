@@ -44,14 +44,20 @@ const TabsCardLayoutComponent: React.FC<TabsCardLayoutProps> = ({
                 </button>
             </div>
             <div className={styles.wrapper}>
-                <TransitionFade>
+                <TransitionFade className={styles.fade}>
                     {state === 1 && (
-                        <div key={'first'}>
+                        <div 
+                            key={'first'}
+                            className={styles.inner}
+                        >
                             {FirstComponent}       
                         </div>
                     )}
                     {state === 2 && (
-                        <div key={'second'}>
+                        <div 
+                            key={'second'}
+                            className={styles.inner}
+                        >
                             {SecondComponent}       
                         </div>
                     )}

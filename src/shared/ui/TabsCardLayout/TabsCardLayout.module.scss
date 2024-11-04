@@ -23,6 +23,7 @@
     border-radius: 20px 20px 0 0;
 
     background-color: rgba(255, 255, 255, 0);
+    color: #161718;
 
     border: none;
     outline: none;
@@ -36,8 +37,20 @@
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
     background: #fff;
     padding: 24px 20px 24px 20px;
     flex: 1;
     overflow-y: scroll;
+}
+
+.fade,
+.inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
