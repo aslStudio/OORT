@@ -29,7 +29,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
 
     return (
         <div className={classes}>
-            <div key={'isPending'}>
+            {/* <div key={'isPending'}>
                 {list.map(item => (
                     <ActiveTaskCard 
                         key={item.id}
@@ -40,7 +40,17 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                         }}
                     />
                 ))}
-            </div>
+            </div> */}
+            {list.map(item => (
+                <ActiveTaskCard 
+                    key={item.id}
+                    className={styles.item}
+                    {...item}
+                    onClick={() => {
+                        navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
+                    }}
+                />
+            ))}
             {/* {!isPending && (
                 <div key={'isPending'}>
                     {list.map(item => (
