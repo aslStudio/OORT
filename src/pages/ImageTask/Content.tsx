@@ -18,6 +18,25 @@ export const Content: React.FC<{
 
     const taskData = pool[id]
 
+    function onUploadClick() {
+        const input = document.createElement('input')
+        input.accept = 'image/*'
+        input.type = 'file'
+        input.addEventListener('change', console.log)
+        document.body.appendChild(input)
+        input.click()
+    }
+
+    function onTackPhotoClick() {
+        const input = document.createElement('input')
+        input.accept = 'image/*'
+        input.type = 'file'
+        input.capture = 'environment'
+        input.addEventListener('change', console.log)
+        document.body.appendChild(input)
+        input.click()
+    }
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Start Task</h1>
@@ -32,17 +51,17 @@ export const Content: React.FC<{
             <div className={styles['floating-button']}>
                 <Button
                     className={styles['floating-button-item']}
-                    tag="link"
                     view={'surface'}
                     isWide={true}
+                    onClick={onUploadClick}
                 >
                     Upload Picture
                 </Button>
                 <Button
                     className={styles['floating-button-item']}
-                    tag="link"
                     view={'surface'}
                     isWide={true}
+                    onClick={onTackPhotoClick}
                 >
                     Open Camera
                 </Button>
