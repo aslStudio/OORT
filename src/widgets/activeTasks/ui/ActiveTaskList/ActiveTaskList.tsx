@@ -27,10 +27,6 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
         styles.root,
     ].join(' ').trim()
 
-    useEffect(() => {
-        console.log(isPending)
-    }, [isPending])
-
     return (
         <div className={classes}>
             <TransitionFade>

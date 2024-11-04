@@ -16,7 +16,7 @@ export const ActiveTaskCardSkeleton: React.FC<PropsDefault> = ({
     ].join(' ').trim()
 
     return (
-        <article className={classes}>
+        <div className={classes}>
             <div className={styles['image-wrapper']}>
                 <BadgeSkeleton 
                     className={styles.type}
@@ -82,6 +82,6 @@ export const ActiveTaskCardSkeleton: React.FC<PropsDefault> = ({
                     />
                 </div>
             </div>
-        </article>
+        </div>
     )
 }
