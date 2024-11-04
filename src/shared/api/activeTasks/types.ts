@@ -27,12 +27,21 @@ export type FetchExpandTaskResponse = ResponseDefault<{
     task: string
 }>
 
-
 export type FetchExpandTaskParams = {
     id: number
+}
+
+export type UploadPhotoResponse = ResponseDefault<{
+    refLink: string
+}>
+
+export type UploadPhotoParams = {
+    id: number
+    img: string
 }
 
 export type ActiveTasksApi = {
     fetch: (params: FetchActiveTasksParams) => Promise<FetchActiveTasksResponse>
     fetchExpand: (params: FetchActiveTasksParams) => Promise<FetchExpandTaskResponse>
+    uploadPhotoResult: (params: UploadPhotoParams) => Promise<UploadPhotoResponse>
 }

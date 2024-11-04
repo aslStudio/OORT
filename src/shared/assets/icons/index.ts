@@ -14,6 +14,9 @@ import Leaderboard from './leaderboard.svg'
 import Reward from './reward.svg'
 import Duration from './duration.svg'
 import FileSize from './file-size.svg'
+import Response from './response.svg'
+import Link from './link.svg'
+import Add from './add.svg'
 
 export const icons = {
     'chevron-right-outline': RightChevron,
@@ -32,4 +35,7 @@ export const icons = {
     'reward': Reward,
     'duration': Duration,
     'file-size': FileSize,
+    'response': Response,
+    'link': Link,
+    'add': Add,
 }

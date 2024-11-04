@@ -20,7 +20,8 @@ const meta = {
             }
         },
         to: 'text',
-        onClick: 'function'
+        onClick: 'function',
+        isLoading: 'boolean'
     }
 }
 
@@ -32,6 +33,7 @@ export const Default = {
         view: 'brand',
         to: '',
         onClick: () => fn(),
-        children: 'BUTTOn'
+        children: 'BUTTOn',
+        isLoading: false,
     }
 }

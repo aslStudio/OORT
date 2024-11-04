@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {BrowserRouter} from "react-router-dom";
 
 import {useTelegram} from "@/shared/lib/hooks/useTelegram";
-import {KeyboardOffsetProvider} from "@/shared/lib/providers";
+import {KeyboardOffsetProvider, TabBarProvider} from "@/shared/lib/providers";
 
 import { RouterView } from './router'
 import { StoreProvider } from './store'
@@ -18,12 +18,14 @@ function App() {
 
     return (
         <StoreProvider>
-            <KeyboardOffsetProvider>
-                <BrowserRouter>
-                    <RouterView />
-                    <TabBar />
-                </BrowserRouter>
-            </KeyboardOffsetProvider>
+            <TabBarProvider>
+                <KeyboardOffsetProvider>
+                    <BrowserRouter>
+                        <RouterView />
+                        <TabBar />
+                    </BrowserRouter>
+                </KeyboardOffsetProvider>
+            </TabBarProvider>
         </StoreProvider>
     );
 }

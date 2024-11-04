@@ -1,9 +1,11 @@
 .root {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px 16px;
+    padding: 16px 20px;
     box-sizing: border-box;
     border-radius: 16px;
 
@@ -17,6 +19,30 @@
     text-decoration: none;
 
     cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+
+.is-loading .content {
+    opacity: 0;
+}
+
+.icon {
+    margin-right: 6px;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .view {

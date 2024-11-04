@@ -61,5 +61,15 @@ export const activeTaskApi: ActiveTasksApi = {
                 task: 'Please take a picture that looks similar to the example above.'
             }
         }
+    },
+    uploadPhotoResult: async data => {
+        await new Promise(resolve => setTimeout(resolve, 3_000))
+
+        return {
+            error: false,
+            payload: {
+                refLink: 'test'
+            }
+        }
     }
 }
