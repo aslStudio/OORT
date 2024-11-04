@@ -6,7 +6,7 @@ import { Badge, BadgeProps } from "@/shared/ui/Badge";
 import { InfoCell } from "@/shared/ui/InfoCell/InfoCell";
 import { formatTime } from '@/shared/lib/time'
 import { ButtonIcon } from "@/shared/ui/ButtonIcon/ButtonIcon";
-import { TaskDifficult } from "@/shared/api/enums";
+import { TaskDifficult, TaskType } from "@/shared/api/enums";
 
 import { ActiveTaskItem } from "../../model/types";
 import { getTaskDifficultText, getTaskTypeText } from "../../model";
@@ -20,6 +20,12 @@ export type ActiveTaskCardProps = PropsDefault<ActiveTaskItem & {
 const badgeViewByDifficult: Record<TaskDifficult, BadgeProps['view']> = {
     [TaskDifficult.DIFFICULT]: 'critical',
     [TaskDifficult.EASY]: 'success'
+}
+
+const taskTypeIconMap: Record<TaskType, BadgeProps['icon']> = {
+    [TaskType.AUDIO]: 'audio',
+    [TaskType.IMAGE]: 'image',
+    [TaskType.VIDEO]: 'video',
 }
 
 const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
@@ -44,6 +50,7 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
                     className={styles.type}
                     size={'l'}
                     view={'default'}
+                    icon={taskTypeIconMap[type]}
                 >
                     {getTaskTypeText(type)}
                 </Badge>

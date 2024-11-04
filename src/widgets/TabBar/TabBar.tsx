@@ -39,44 +39,72 @@ export const TabBar = () => {
     const { isShow } = useTabBarContext()
 
     return (
-        <AnimatePresence>
-            {isShow && (
-                <motion.div
-                    className={styles.root}
-                    initial={{
-                        transform: 'translateY(100%)'
-                    }}
-                    animate={{
-                        transform: 'translateY(0)'
-                    }}
-                    exit={{
-                        transform: 'translateY(100%)'
-                    }}
+        <div className={[
+            styles.wrapper,
+            styles.root
+        ].join(' ').trim()}>
+            {data.map((item, key) => (
+                <Link
+                    key={key}
+                    className={[
+                        styles.button,
+                        location.pathname === item.to ? styles['is-active'] : ''
+                    ].join(' ').trim()}
+                    to={item.to}
                 >
-                    <div className={styles.wrapper}>
-                        {data.map((item, key) => (
-                            <Link
-                                key={key}
-                                className={[
-                                    styles.button,
-                                    location.pathname === item.to ? styles['is-active'] : ''
-                                ].join(' ').trim()}
-                                to={item.to}
-                            >
-                                <Icon 
-                                    className={styles.icon}
-                                    name={item.icon}
-                                    size={24}
-                                    view={location.pathname === item.to ? 'brand' : 'dark'}
-                                />
-                                <p>
-                                    {item.text}
-                                </p>
-                            </Link>
-                        ))}
-                    </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+                    <Icon 
+                        className={styles.icon}
+                        name={item.icon}
+                        size={24}
+                        view={location.pathname === item.to ? 'brand' : 'dark'}
+                    />
+                    <p>
+                        {item.text}
+                    </p>
+                </Link>
+            ))}
+        </div>
     )
+
+    // return (
+    //     <AnimatePresence>
+    //         {isShow && (
+    //             <motion.div
+    //                 className={styles.root}
+    //                 initial={{
+    //                     transform: 'translateY(100%)'
+    //                 }}
+    //                 animate={{
+    //                     transform: 'translateY(0)'
+    //                 }}
+    //                 exit={{
+    //                     transform: 'translateY(100%)'
+    //                 }}
+    //             >
+    //                 <div className={styles.wrapper}>
+    //                     {data.map((item, key) => (
+    //                         <Link
+    //                             key={key}
+    //                             className={[
+    //                                 styles.button,
+    //                                 location.pathname === item.to ? styles['is-active'] : ''
+    //                             ].join(' ').trim()}
+    //                             to={item.to}
+    //                         >
+    //                             <Icon 
+    //                                 className={styles.icon}
+    //                                 name={item.icon}
+    //                                 size={24}
+    //                                 view={location.pathname === item.to ? 'brand' : 'dark'}
+    //                             />
+    //                             <p>
+    //                                 {item.text}
+    //                             </p>
+    //                         </Link>
+    //                     ))}
+    //                 </div>
+    //             </motion.div>
+    //         )}
+    //     </AnimatePresence>
+    // )
 }
