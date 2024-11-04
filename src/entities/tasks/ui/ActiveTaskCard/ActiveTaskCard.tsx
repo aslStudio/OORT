@@ -34,7 +34,7 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
     onClick
 }) => {
     return (
-        <article className={styles.root}>
+        <div className={styles.root}>
             <div className={styles['image-wrapper']}>
                 <Badge 
                     className={styles.type}
@@ -86,7 +86,7 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
                     />
                 </div>
             </div>
-        </article>
+        </div>
     )
 }
 

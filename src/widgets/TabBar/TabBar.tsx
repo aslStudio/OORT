@@ -36,7 +36,7 @@ export const TabBar = () => {
     const location = useLocation()
 
     return (
-        <footer className={styles.root}>
+        <div className={styles.root}>
             {data.map((item, key) => (
                 <Link
                     key={key}
@@ -57,6 +57,6 @@ export const TabBar = () => {
                     </p>
                 </Link>
             ))}
-        </footer>
+        </div>
     )
 }
