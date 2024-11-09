@@ -68,7 +68,8 @@ export const activeTaskApi: ActiveTasksApi = {
         return {
             error: false,
             payload: {
-                refLink: 'test'
+                status: true,
+                errorCode: 0,
             }
         }
     }

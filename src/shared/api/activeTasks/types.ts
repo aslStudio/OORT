@@ -32,12 +32,13 @@ export type FetchExpandTaskParams = {
 }
 
 export type UploadPhotoResponse = ResponseDefault<{
-    refLink: string
+    status: boolean
+    errorCode: number
 }>
 
 export type UploadPhotoParams = {
     id: number
-    img: string
+    img: File
 }
 
 export type ActiveTasksApi = {

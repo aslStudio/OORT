@@ -6,29 +6,40 @@ const upload = createAsyncThunk(
     activeTaskApi.uploadPhotoResult
 )
 
+const initialState: {
+    isPending: boolean
+    isSuccess: boolean
+    errorCode: null | number
+} = {
+    isPending: false,
+    isSuccess: false,
+    errorCode: null,
+}
+
 const uploadSlice = createSlice({
     name: 'feature/uploadPhotoResult',
-    initialState: {
-        isPending: false,
-        isSuccess: false,
-        refCode: '',
-    },
+    initialState,
     reducers: {
         reset: state => {
             state.isPending = false
             state.isSuccess = false
-            state.refCode = ''
+            state.errorCode = null
         }
     },
     extraReducers: builder => {
         builder
             .addCase(upload.pending, state => {
                 state.isPending = true
+                state.isSuccess = false
+                state.errorCode = null
             })
             .addCase(upload.fulfilled, (state, { payload }: PayloadAction<UploadPhotoResponse>) => {
                 state.isPending = false
-                state.isSuccess = true
-                state.refCode = payload.payload.refLink
+                if (payload.payload.status) {
+                    state.isSuccess = true
+                } else {
+                    state.errorCode = payload.payload.errorCode
+                }
             })
     }
 })
