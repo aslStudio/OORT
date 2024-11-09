@@ -1,28 +1,32 @@
-import React from "react";
+import React from "react"
+import { useSelector } from "react-redux"
+
+import { RootState } from "@/app/store"
+
+import { StartTask } from "@/widgets/activeTasks"
+
+import { ExpandTask } from "@/entities/tasks/model/types"
+
+import { LazyImage } from "@/shared/ui/LazyImage/LazyImage"
+import { Button } from "@/shared/ui"
+import { useUploadFile } from "@/shared/lib/hooks/useUploadFile"
 
 import styles from './Start.module.scss'
-import { LazyImage } from "@/shared/ui/LazyImage/LazyImage";
-import { FloatingButtons } from "@/shared/ui/FloatingButtons";
-import { Button } from "@/shared/ui";
-import { useUploadFile } from "@/shared/lib/hooks/useUploadFile";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/app/store";
-import { uploadPhotoResultModel } from "@/features/tasks";
 
 export type StartProps = {
-    imageExample: string
-    task: string
+    id: ExpandTask['id']
     onTakePhoto: () => void
     onPhotoUploaded: (v: File) => void
 }
 
 const StartComponent: React.FC<StartProps> = ({
-    task,
-    imageExample,
+    id,
     onTakePhoto,
     onPhotoUploaded,
 }) => {
-    const dispatch = useDispatch<AppDispatch>()
+    const pool = useSelector((state: RootState) => state.expandTasks.pool)
+
+    const taskData = pool[id]
 
     const { onUploadClick } = useUploadFile()
 
@@ -42,36 +46,38 @@ const StartComponent: React.FC<StartProps> = ({
     }
 
     return (
-        <div>
-            <h1 className={styles.title}>Start Task</h1>
-            <LazyImage
-                className={styles['main-image']}
-                src={imageExample}
-                alt="example"
-                skeletonMinHeight={250}
-            />
-            <h2 className={styles['details-title']}>Example</h2>
-            <p className={styles.details}>{task}</p>
-            <FloatingButtons>
-                <Button
-                    view={'surface'}
-                    isWide={true}
-                    onClick={() => onUploadClick(
-                        'image/*',
-                        onUploadFile,
-                    )}
-                >
-                    Upload Picture
-                </Button>
-                <Button
-                    view={'surface'}
-                    isWide={true}
-                    onClick={onTakePhoto}
-                >
-                    Open Camera
-                </Button>
-            </FloatingButtons>
-        </div>
+        <StartTask 
+            PreviewComponent={(
+                <LazyImage
+                    className={styles['preview-img']}
+                    src={taskData.exampleImg}
+                    alt="example"
+                    skeletonMinHeight={250}
+                />
+            )}
+            task={taskData.task}
+            ActionsComponent={(
+                <>
+                    <Button
+                        view={'surface'}
+                        isWide={true}
+                        onClick={() => onUploadClick(
+                            'image/*',
+                            onUploadFile,
+                        )}
+                    >
+                        Upload Picture
+                    </Button>
+                    <Button
+                        view={'surface'}
+                        isWide={true}
+                        onClick={onTakePhoto}
+                    >
+                        Open Camera
+                    </Button>
+                </>
+            )}
+        />
     )
 }
 

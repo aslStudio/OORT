@@ -1,9 +1,8 @@
 import React, { useRef } from "react"
+import { createPortal } from "react-dom"
 import Webcam from "react-webcam"
 
 import styles from './Camera.module.scss'
-import { useDispatch } from "react-redux"
-import { createPortal } from "react-dom"
 
 export type CameraProps = {
     onTakePhoto: (v: File) => void
@@ -12,8 +11,6 @@ export type CameraProps = {
 export const Camera: React.FC<CameraProps> = ({
     onTakePhoto
 }) => {
-    const dispatch = useDispatch()
-
     const webcamRef = useRef<Webcam | null>(null);
 
     function onClick() {

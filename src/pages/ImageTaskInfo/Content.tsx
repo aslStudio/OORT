@@ -42,7 +42,7 @@ export const Content: React.FC<{
                 className={styles['details-card']}
                 reward={taskData.reward}
                 fileSize={taskData.fileSize}
-                duration={taskData.duration}
+                time={taskData.duration}
             />
             <div className={styles['floating-button']}>
                 <Button

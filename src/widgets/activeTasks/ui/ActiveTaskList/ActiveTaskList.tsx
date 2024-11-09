@@ -37,7 +37,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                             className={styles.item}
                             {...item}
                             onClick={() => {
-                                navigate(RouterPathes.PHOTO_TASK_DETAILS.replace(':id', `${item.id}`))
+                                navigate(RouterPathes.PHOTO_TASK.replace(':id', `${item.id}`))
                             }}
                         />
                     ))}

@@ -1,22 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
-import { useTelegram } from "@/shared/lib/hooks/useTelegram";
+import { useCopyToClipboard } from "@/shared/lib/hooks/useCopy"
+import { useTelegram } from "@/shared/lib/hooks/useTelegram"
+import { useTabBarContext } from "@/shared/lib/providers"
+import { BottomSheet, useModal } from "@/shared/ui/BottomSheet"
+import { icons } from "@/shared/assets/icons"
+import { RouterPathes } from "@/shared/lib/types"
+import { Button, Icon } from "@/shared/ui"
+import { ButtonIcon } from "@/shared/ui/ButtonIcon"
 
-import styles from './Respose.module.scss'
-import { Button, Icon } from "@/shared/ui";
-import { RouterPathes } from "@/shared/lib/types";
-import { ButtonIcon } from "@/shared/ui/ButtonIcon";
-import { useTabBarContext } from "@/shared/lib/providers";
-import { icons } from "@/shared/assets/icons";
-import { BottomSheet, useModal } from "@/shared/ui/BottomSheet";
-import { useCopyToClipboard } from "@/shared/lib/hooks/useCopy";
+import styles from './TaskResponse.module.scss'
 
-export const TaskResponse: React.FC<{
-    refLink: string
+export type TaskResponseProps = {
     award: number
-}> = ({
-    refLink,
-    award
+    story: string
+}
+
+const refLink = 'MOCK REPLACE IT'
+
+const TaskResponseComponent: React.FC<TaskResponseProps> = ({
+    award,
+    story
 }) => {
     const { setHeaderColor, shareLink, shareToStory } = useTelegram()
     const { show, hide } = useTabBarContext()
@@ -113,7 +117,7 @@ export const TaskResponse: React.FC<{
                     view={'surface'}
                     icon={'add'}
                     onClick={() => shareToStory(
-                        'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
+                        story,
                         {
                             widget_link: {
                                 url: 'https://google.com',
@@ -128,3 +132,5 @@ export const TaskResponse: React.FC<{
         </div>
     )
 }
+
+export const TaskResponse = React.memo(TaskResponseComponent)

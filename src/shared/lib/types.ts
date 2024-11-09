@@ -7,7 +7,6 @@ export type BrandedType<K, T> = K & { __brand: T }
 
 export enum RouterPathes {
     MAIN = '/',
-    PHOTO_TASK_DETAILS = '/photo-task-details/:id',
     PHOTO_TASK = '/photo-task/:id',
     OTHER = '/other'
 }

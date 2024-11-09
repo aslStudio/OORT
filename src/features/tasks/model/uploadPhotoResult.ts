@@ -9,10 +9,12 @@ const upload = createAsyncThunk(
 const initialState: {
     isPending: boolean
     isSuccess: boolean
+    story: string
     errorCode: null | number
 } = {
     isPending: false,
     isSuccess: false,
+    story: '',
     errorCode: null,
 }
 

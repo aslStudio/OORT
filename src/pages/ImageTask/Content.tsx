@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Webcam from "react-webcam"
 
 import { AppDispatch, RootState } from "@/app/store"
 
@@ -8,14 +7,14 @@ import { uploadPhotoResultModel } from "@/features/tasks"
 
 import { ExpandTask } from "@/entities/tasks/model/types"
 
-import { LazyImage } from "@/shared/ui/LazyImage/LazyImage"
-import { Button } from "@/shared/ui"
 import { TransitionFade } from "@/shared/ui/TransitionFade"
 
-import { TaskResponse, Start, Verify, Camera } from './ui'
+import { Start, Verify, Camera, Info } from './ui'
 import styles from './ImageTask.module.scss'
+import { TaskResponse } from "@/widgets/activeTasks"
 
 enum Step {
+    INFO,
     START,
     CAMERA,
     VERIFY,
@@ -32,27 +31,9 @@ export const Content: React.FC<{
     const dispatch = useDispatch<AppDispatch>()
 
     const [value, setValue] = useState<File | null>(null)
-    const [step, setStep] = useState<Step>(Step.START)
+    const [step, setStep] = useState<Step>(Step.INFO)
 
     const taskData = pool[id]
-
-    // function onGetFile(file: File) {
-    //     try {
-    //         const renderer = new FileReader()
-    
-            // renderer.onload = (event: ProgressEvent<FileReader>) => {
-            //     if (event.target?.result) {
-            //         setPreview(event.target?.result as string)
-            //         setValue(file)
-            //         setStep(Step.VERIFY)
-            //     }
-            // }
-
-    //         renderer.readAsDataURL(file)
-    //     } catch (e) {
-    //         alert(e)
-    //     }
-    // }
 
     function onTakePhotoClick() {
         setStep(Step.CAMERA)
@@ -86,10 +67,17 @@ export const Content: React.FC<{
     return (
         <div className={styles.container}>
             <TransitionFade>
+                {step === Step.INFO && (
+                    <Info 
+                        id={id}
+                        onStart={() => {
+                            setStep(Step.START)
+                        }}
+                    />
+                )}
                 {step === Step.START && (
                     <Start 
-                        imageExample={taskData.exampleImg}
-                        task={taskData.task}
+                        id={id}
                         onTakePhoto={onTakePhotoClick}
                         onPhotoUploaded={v => {
                             setValue(v)
@@ -118,7 +106,7 @@ export const Content: React.FC<{
                 {step === Step.RESPONSE && (
                     <TaskResponse 
                         award={taskData.reward}
-                        refLink={'TEST REPLACE WITH MOCK'}
+                        story={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
                     />
                 )}
             </TransitionFade>

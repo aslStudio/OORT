@@ -2,10 +2,13 @@ import React from "react";
 
 import styles from './FloatingButtons.module.scss'
 
-export const FloatingButtons: React.FC<React.PropsWithChildren> = ({
+export const FloatingButtons: React.FC<React.PropsWithChildren<{
+    childrenCount?: number
+}>> = ({
     children,
+    childrenCount,
 }) => {
-    const isTwoButtons = Array.isArray(children)
+    const isTwoButtons = childrenCount === 2
 
     const classes = [
         styles.root,

@@ -9,14 +9,19 @@ import { formatTime } from "@/shared/lib/time";
 export type ExpandTaskDetailsProps = PropsDefault<{
     reward: number
     fileSize: string
-    duration: TimeStamp
+    duration?: {
+        title: string
+        value: TimeStamp
+    }
+    time: TimeStamp
 }>
 
 const ExpandTaskDetailsComponent: React.FC<ExpandTaskDetailsProps> = ({
     className,
     reward,
     fileSize,
-    duration
+    time,
+    duration,
 }) => {
     const classes = [
         className,
@@ -39,13 +44,25 @@ const ExpandTaskDetailsComponent: React.FC<ExpandTaskDetailsProps> = ({
                 title="File size"
                 value={fileSize}
             />
+            {duration && (
+                <>
+                    <div 
+                        className={styles.divider}
+                    />
+                    <Cell 
+                        icon={'file-size'}
+                        title={duration.title}
+                        value={`Up to ${duration.value}`}
+                    />
+                </>  
+            )}
             <div 
                 className={styles.divider}
             />
             <Cell 
                 icon={'duration'}
                 title="Time to complete task"
-                value={formatTime(duration)}
+                value={formatTime(time)}
             />
         </div>
     )
