@@ -30,6 +30,7 @@ export const Content: React.FC<{
 
     const [value, setValue] = useState<File | null>(null)
     const [step, setStep] = useState<Step>(Step.INFO)
+    const [blob, setBlob] = useState<Blob | null>(null)
 
     const taskData = pool[id]
 
@@ -85,8 +86,14 @@ export const Content: React.FC<{
             {step === Step.CAMERA && (
                 <Camera 
                     key={'Camera'}
-                    onTakeVideo={v => {
-                        setValue(v)
+                    onTakeVideo={blob => {
+                        const file = new File(
+                            [blob], 
+                            'recorded-video.webm', 
+                            { type: 'video/webm' }
+                        )
+                        setValue(file)
+                        setBlob(blob)
                         setStep(Step.VERIFY)
                     }}
                 />
@@ -94,7 +101,7 @@ export const Content: React.FC<{
             {step === Step.VERIFY && (
                 <Verify 
                     key={'Verify'}
-                    value={value!}
+                    blob={blob!}
                     onVideoUploaded={v => {
                         setValue(v)
                         setStep(Step.VERIFY)
