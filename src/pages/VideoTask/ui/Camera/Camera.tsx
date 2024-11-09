@@ -17,9 +17,10 @@ export const Camera: React.FC<CameraProps> = ({
     const [isRecording, setIsRecording] = useState(false)
     const [recordedChunks, setRecordedChunks] = useState<BlobEvent['data'][]>([]);
 
-    const onClick = useCallback(() => {
+    const onClick = useCallback((isStart: boolean) => {
+        setIsRecording(isStart)
         if (webcamRef.current && webcamRef.current.stream) {
-            if (isRecording) {
+            if (isStart) {
                 mediaRecorderRef.current = new MediaRecorder(
                     webcamRef.current.stream, 
                     {
@@ -33,7 +34,6 @@ export const Camera: React.FC<CameraProps> = ({
                 mediaRecorderRef.current.start()
             } else {
                 mediaRecorderRef.current?.stop()
-                setIsRecording(false)
 
                 if (recordedChunks.length) {
                     const blob = new Blob(
@@ -81,8 +81,7 @@ export const Camera: React.FC<CameraProps> = ({
                     ].join(' ').trim()
                 }
                 onClick={() => {
-                    setIsRecording(!isRecording)
-                    onClick()
+                    onClick(!isRecording)
                 }}
             />
         </div>,

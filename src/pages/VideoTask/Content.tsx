@@ -87,6 +87,7 @@ export const Content: React.FC<{
                     key={'Camera'}
                     onTakeVideo={v => {
                         setValue(v)
+                        setStep(Step.VERIFY)
                     }}
                 />
             )}
