@@ -48,6 +48,6 @@ export const Camera: React.FC<CameraProps> = ({
                 onClick={onClick}
             />
         </div>,
-        document.querySelector('#root')!
+        document.body
     )
 }
