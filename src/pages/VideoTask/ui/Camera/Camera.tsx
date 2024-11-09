@@ -1,8 +1,10 @@
-import React, { useCallback, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import Webcam from "react-webcam"
 
 import styles from './Camera.module.scss'
+import { TransitionFade } from "@/shared/ui/TransitionFade"
+import { Loader } from "@/shared/ui/Loader"
 
 export type CameraProps = {
     onTakeVideo: (v: Blob) => void
@@ -14,6 +16,7 @@ export const Camera: React.FC<CameraProps> = ({
     const webcamRef = useRef<Webcam | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null)
 
+    const [isLoading, setIsLoading] = useState(true)
     const [isRecording, setIsRecording] = useState(false)
 
     const onClick = (isStart: boolean) => {
@@ -49,7 +52,12 @@ export const Camera: React.FC<CameraProps> = ({
     }
 
     return createPortal(
-        <div className={styles.root}>
+        <div 
+            className={[
+                styles.root,
+                isLoading ? styles['is-loading'] : ''
+            ].join(' ').trim()}
+        >
             <Webcam 
                 ref={webcamRef}
                 className={styles.webcam}
@@ -60,7 +68,18 @@ export const Camera: React.FC<CameraProps> = ({
                         exact: 'environment'
                     }
                 }}
+                onUserMedia={() => {
+                    setIsLoading(false)
+                }}
             />
+            <TransitionFade className={styles.loader}>
+                {isLoading && (
+                    <Loader 
+                        size={'m'}
+                        color={'white'}
+                    />
+                )}
+            </TransitionFade>
             <button
                 className={
                     [

@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import Webcam from "react-webcam"
 
@@ -12,6 +12,8 @@ export const Camera: React.FC<CameraProps> = ({
     onTakePhoto
 }) => {
     const webcamRef = useRef<Webcam | null>(null);
+
+    const [isLoading, setIsLoading] = useState(true)
 
     function onClick() {
         if (webcamRef.current) {
@@ -33,7 +35,12 @@ export const Camera: React.FC<CameraProps> = ({
     }
 
     return createPortal(
-        <div className={styles.root}>
+        <div 
+            className={[
+                styles.root,
+                isLoading ? styles['is-loading'] : ''
+            ].join(' ').trim()}
+        >
             <Webcam
                 ref={webcamRef}
                 className={styles.webcam}
@@ -45,6 +52,9 @@ export const Camera: React.FC<CameraProps> = ({
                     facingMode: {
                         exact: 'environment'
                     }
+                }}
+                onUserMedia={() => {
+                    setIsLoading(false)
                 }}
             />
             <button 

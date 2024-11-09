@@ -32,6 +32,8 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             <ReactPlayer 
                 url={src}
                 playing={isPlaying}
+                playsinline={true}
+                controls={false}
                 width='100%'
                 height='100%'
                 onEnded={() => {
