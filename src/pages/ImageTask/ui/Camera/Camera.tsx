@@ -40,8 +40,15 @@ export const Camera: React.FC<CameraProps> = ({
             <Webcam
                 ref={webcamRef}
                 className={styles.webcam}
+                width={window.innerWidth}
+                height={window.innerHeight}
                 audio={false}
                 screenshotFormat="image/jpeg"
+                videoConstraints={{
+                    facingMode: {
+                        exact: 'environment'
+                    }
+                }}
             />
             <button 
                 className={styles.button}
