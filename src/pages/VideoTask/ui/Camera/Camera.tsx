@@ -23,7 +23,7 @@ export const Camera: React.FC<CameraProps> = ({
                 mediaRecorderRef.current = new MediaRecorder(
                     webcamRef.current.stream, 
                     {
-                        mimeType: "video/webm"
+                        mimeType: "video/mp4"
                     }
                 )
                 mediaRecorderRef.current.addEventListener(
@@ -42,7 +42,7 @@ export const Camera: React.FC<CameraProps> = ({
         if (data.size > 0) {
             const blob = new Blob(
                 [data], 
-                { type: 'video/webm' }
+                { type: 'video/mp4' }
             )
             onTakeVideo(blob)
         }
