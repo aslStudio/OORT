@@ -12,7 +12,15 @@ const initialState: {
 
 const fetchExpandTask = createAsyncThunk(
     'activeTask/fetchExpand',
-    async (id: ExpandTask['id'], pool: Record<ExpandTask['id'], ExpandTask>) => {
+    async ({
+        id,
+        pool
+    }: {
+        id: ExpandTask['id'], 
+        pool: Record<ExpandTask['id'], ExpandTask>
+    }) => {
+        console.log('fetchExpandTask')
+
         if (id in pool) {
             return {
                 error: false,
@@ -31,6 +39,9 @@ const expandTasksSlice = createSlice({
     reducers: {
         setIsPending: (state, { payload }: PayloadAction<boolean>) => {
             state.isPending = payload
+        },
+        resetPending: state => {
+            state.isPending = true
         }
     },
     extraReducers: builder => {

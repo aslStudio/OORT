@@ -11,7 +11,7 @@ export type TransitionFadeProps = PropsDefaultWithChildren<{
 const TransitionFadeComponent = ({
     children,
     className,
-    duration = 0.15,
+    duration = 0.3,
     delay = 0,
 }: TransitionFadeProps) => {
     const childrenList = Array.isArray(children) ? children : [children]

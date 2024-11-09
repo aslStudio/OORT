@@ -26,7 +26,7 @@ export const Info: React.FC<{
             taskDetails={{
                 reward: taskData.reward,
                 fileSize: taskData.fileSize,
-                time: taskData.duration,
+                time: taskData.time,
             }}
             onStart={onStart}
         />

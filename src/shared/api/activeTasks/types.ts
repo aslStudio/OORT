@@ -9,7 +9,7 @@ export type FetchActiveTasksResponse = ResponseDefault<{
     description: string
     difficult: TaskDifficult
     price: number
-    duration: TimeStamp
+    time: TimeStamp
 }[]>
 
 export type FetchActiveTasksParams = TaskType | 'all'
@@ -23,7 +23,7 @@ export type FetchExpandTaskResponse = ResponseDefault<{
     reward: number
     fileSize: string
     duration: TimeStamp
-    exampleImg: string
+    example: string
     task: string
 }>
 
@@ -41,8 +41,19 @@ export type UploadPhotoParams = {
     img: File
 }
 
+export type UploadVideoResponse = ResponseDefault<{
+    status: boolean
+    errorCode: number
+}>
+
+export type UploadVideoParams = {
+    id: number
+    img: File
+}
+
 export type ActiveTasksApi = {
     fetch: (params: FetchActiveTasksParams) => Promise<FetchActiveTasksResponse>
     fetchExpand: (params: FetchActiveTasksParams) => Promise<FetchExpandTaskResponse>
     uploadPhotoResult: (params: UploadPhotoParams) => Promise<UploadPhotoResponse>
+    uploadVideoResult: (params: UploadVideoParams) => Promise<UploadVideoResponse>
 }

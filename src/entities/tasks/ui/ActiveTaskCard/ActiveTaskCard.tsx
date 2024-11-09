@@ -37,7 +37,7 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
     description,
     difficult,
     price,
-    duration,
+    time,
     onClick
 }) => {
     const classes = [
@@ -87,7 +87,7 @@ const ActiveTaskCardComponent: React.FC<ActiveTaskCardProps> = ({
                         <InfoCell 
                             view="secondary"
                             icon={'clock'}
-                            title={formatTime(duration)}
+                            title={formatTime(time)}
                         />
                     </div>
                     <ButtonIcon 

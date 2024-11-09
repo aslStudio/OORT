@@ -68,7 +68,7 @@ const VerifyComponent: React.FC<VerifyProps> = ({
             )}
             Actions={(
                 <>
-                <Button
+                    <Button
                         view={'surface'}
                         isWide={true}
                         onClick={() => onUploadClick(

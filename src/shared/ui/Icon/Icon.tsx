@@ -26,7 +26,7 @@ export const Icon: React.FC<IconProps> = ({
                 styles.root,
                 styles[`view_${view}`]
             ].join(' ').trim()}
-            src={icons[name as keyof typeof icons]}
+            src={icons[name]}
             alt={`icon-${name}`}
             width={size}
             height={size}

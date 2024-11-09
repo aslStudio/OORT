@@ -8,6 +8,7 @@ export type BrandedType<K, T> = K & { __brand: T }
 export enum RouterPathes {
     MAIN = '/',
     PHOTO_TASK = '/photo-task/:id',
+    VIDEO_TASK = '/video-task/:id',
     OTHER = '/other'
 }
 

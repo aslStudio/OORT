@@ -3,6 +3,7 @@ import {Route, Routes, useLocation} from "react-router-dom";
 
 import { Main } from "@/pages/Main/Main"
 import { ImageTask } from "@/pages/ImageTask/ImageTask";
+import { VideoTask } from "@/pages/VideoTask/VideoTask";
 
 import { RouterPathes } from "@/shared/lib/types";
 
@@ -34,6 +35,10 @@ export const RouterView = React.memo(() => {
                 <Route 
                     path={RouterPathes.PHOTO_TASK} 
                     element={<ImageTask />} 
+                />
+                <Route 
+                    path={RouterPathes.VIDEO_TASK}
+                    element={<VideoTask />}
                 />
             </Routes>
         </div>

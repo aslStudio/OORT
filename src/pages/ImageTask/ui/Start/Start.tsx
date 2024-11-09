@@ -50,7 +50,7 @@ const StartComponent: React.FC<StartProps> = ({
             PreviewComponent={(
                 <LazyImage
                     className={styles['preview-img']}
-                    src={taskData.exampleImg}
+                    src={taskData.example}
                     alt="example"
                     skeletonMinHeight={250}
                 />
