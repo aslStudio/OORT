@@ -13,6 +13,8 @@ import { SkeletonWrapper } from "@/shared/ui/SkeletonWrapper"
 import { TaskType } from "@/shared/api/enums"
 
 import styles from './ActiveTaskList.module.scss'
+import { LazyImage } from "@/shared/ui/LazyImage/LazyImage"
+import { images } from "@/shared/assets/images"
 
 export const ActiveTaskList: React.FC<PropsDefault> = ({
     className
@@ -46,8 +48,8 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
 
     return (
         <TransitionFade className={classes}>
-            {!isPending && (
-                <div key={'notIsPending'}>
+            {!isPending && list.length && (
+                <div key={'Content'}>
                     {list.map(item => (
                         <ActiveTaskCard 
                             key={item.id}
@@ -58,8 +60,22 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                     ))}
                 </div>
             )}
+            {!isPending && !list.length && (
+                <div 
+                    key={'Empty'}
+                    className={styles.empty}    
+                >
+                    <LazyImage 
+                        className={styles.image}
+                        src={images.Decorations.Empty}
+                        alt={'empty'}
+                        skeletonMinHeight={160}
+                    />
+                    <p>There are no any mission yet</p>
+                </div>
+            )}
             {isPending && (
-                <SkeletonWrapper key={'isPending'}>
+                <SkeletonWrapper key={'Skeleton'}>
                     {Array(3).fill(1).map((_, key) => (
                         <ActiveTaskCardSkeleton 
                             key={key}

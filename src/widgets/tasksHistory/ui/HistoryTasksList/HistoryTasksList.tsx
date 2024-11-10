@@ -10,6 +10,8 @@ import { SkeletonWrapper } from '@/shared/ui/SkeletonWrapper'
 import { TransitionFade } from '@/shared/ui/TransitionFade'
 
 import styles from './HistoryTasksList.module.scss'
+import { LazyImage } from '@/shared/ui/LazyImage/LazyImage'
+import { images } from '@/shared/assets/images'
 
 export const HistoryTasksList: React.FC<PropsDefault> = ({
     className
@@ -26,7 +28,7 @@ export const HistoryTasksList: React.FC<PropsDefault> = ({
 
     return (
         <TransitionFade className={classes}>
-            {!isPending && (
+            {!isPending && list.length && (
                 <div key={'notIsPending'}>
                     {list.map(item => (
                         <HistoryTaskCard 
@@ -35,6 +37,20 @@ export const HistoryTasksList: React.FC<PropsDefault> = ({
                             {...item}
                         />
                     ))}
+                </div>
+            )}
+            {!isPending && !list.length && (
+                <div 
+                    key={'Empty'}
+                    className={styles.empty}    
+                >
+                    <LazyImage 
+                        className={styles.image}
+                        src={images.Decorations.Empty}
+                        alt={'empty'}
+                        skeletonMinHeight={160}
+                    />
+                    <p>You haven't completed any missions yet.</p>
                 </div>
             )}
             {isPending && (
