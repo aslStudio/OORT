@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 
-import { useCopyToClipboard } from "@/shared/lib/hooks/useCopy"
+import { ReferralModal } from "@/features/referral"
+
 import { useTelegram } from "@/shared/lib/hooks/useTelegram"
 import { useTabBarContext } from "@/shared/lib/providers"
-import { BottomSheet, useModal } from "@/shared/ui/BottomSheet"
+import { useModal } from "@/shared/ui/BottomSheet"
 import { icons } from "@/shared/assets/icons"
 import { RouterPathes } from "@/shared/lib/types"
 import { Button, Icon } from "@/shared/ui"
@@ -16,16 +17,12 @@ export type TaskResponseProps = {
     story: string
 }
 
-const refLink = 'MOCK REPLACE IT'
-
 const TaskResponseComponent: React.FC<TaskResponseProps> = ({
     award,
-    story
 }) => {
-    const { setHeaderColor, shareLink, shareToStory } = useTelegram()
+    const { setHeaderColor } = useTelegram()
     const { show, hide } = useTabBarContext()
     const { isOpen, open, close } = useModal()
-    const [_, copy] = useCopyToClipboard()
 
     useEffect(() => {
         setHeaderColor('#131740')
@@ -85,50 +82,10 @@ const TaskResponseComponent: React.FC<TaskResponseProps> = ({
                     onClick={open}
                 />
             </div>
-            <BottomSheet
+            <ReferralModal 
                 isOpen={isOpen}
                 setIsOpen={close}
-            >
-                <h3>Share Your Referral Link with Friends and Earn More Points!</h3>
-                <div className={styles['copy-cell']}>
-                    <div>
-                        <p className={styles.label}>Your Referral Link</p>
-                        <p className={styles.value}>{refLink}</p>
-                    </div>
-                    <ButtonIcon 
-                        size={'l'}
-                        view={'surface'}
-                        icon={'copy-outline'}
-                        onClick={() => copy(refLink)}
-                    />
-                </div>
-                <Button
-                    className={styles['modal-button']}
-                    isWide={true}
-                    view={'surface'}
-                    icon={'link'}
-                    onClick={() => shareLink(refLink)}
-                >
-                    Share Link
-                </Button>
-                <Button
-                    className={styles['modal-button']}
-                    isWide={true}
-                    view={'surface'}
-                    icon={'add'}
-                    onClick={() => shareToStory(
-                        story,
-                        {
-                            widget_link: {
-                                url: 'https://google.com',
-                                name: refLink,
-                            }
-                        }
-                    )}
-                >
-                    Share in Stories
-                </Button>
-            </BottomSheet>
+            />
         </div>
     )
 }

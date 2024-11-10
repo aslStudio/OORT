@@ -3,4 +3,8 @@
     border-radius: 24px;
     margin-top: 24px;
     overflow: hidden;
+
+    & img {
+        vertical-align: middle;
+    }
 }

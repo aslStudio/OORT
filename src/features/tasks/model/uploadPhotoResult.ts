@@ -1,5 +1,5 @@
 import { activeTaskApi, UploadPhotoResponse } from "@/shared/api";
-import { createAsyncThunk, createSlice, isPending, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const upload = createAsyncThunk(
     'feature/tasks/uploadResult',

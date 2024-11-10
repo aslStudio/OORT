@@ -1,0 +1,59 @@
+.title {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 28px;
+    color: #161718;
+
+    margin-bottom: 16px;
+}
+
+.wrapper {
+    min-height: 228px;
+}
+
+.cell-skeleton {
+    width: 100%;
+    height: 100px;
+
+    margin-bottom: 16px;
+    
+    background: #f0f4ff;
+}
+
+.copy-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    border-radius: 24px;
+    padding: 24px;
+    background: #f0f4ff;
+    box-sizing: border-box;
+
+    margin-bottom: 16px;
+
+    .label {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: 0em;
+        color: #4c5257;
+    }
+
+    .value {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        color: #161718;
+
+        margin-top: 8px;
+    }
+}
+
+.modal-button {
+    & + & {
+        margin-top: 8px;
+    }
+}

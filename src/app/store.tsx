@@ -1,4 +1,5 @@
 import { activeTasksModel, expandTasksModel } from '@/entities/tasks'
+import { referralModel } from '@/features/referral/model'
 import { uploadPhotoResultModel, uploadVideoResultModel } from '@/features/tasks'
 import { balanceModel } from '@/widgets/balance'
 import { configureStore } from '@reduxjs/toolkit'
@@ -10,6 +11,7 @@ const store = configureStore({
         balance: balanceModel.reducer,
         activeTasks: activeTasksModel.reducer,
         expandTasks: expandTasksModel.reducer,
+        referral: referralModel.reducer,
         uploadPhotoResult: uploadPhotoResultModel.reducer,
         uploadVideoResult: uploadVideoResultModel.reducer,
     }
