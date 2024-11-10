@@ -8,3 +8,9 @@ export enum TaskType {
     VIDEO,
     AUDIO
 }
+
+export enum TaskState {
+    ACCEPTED,
+    REVIEW,
+    DECLINED
+}

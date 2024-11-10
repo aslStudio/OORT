@@ -8,5 +8,6 @@ export const views = [
     'dark',
     'brand',
     'success',
+    'warning',
     'critical',
 ] as const

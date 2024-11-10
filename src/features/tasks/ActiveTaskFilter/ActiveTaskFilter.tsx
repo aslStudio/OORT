@@ -44,12 +44,11 @@ export const ActiveTaskFilter: React.FC<PropsDefault> = ({
 
     function setValue(v: number | string) {
         dispatch(activeTasksModel.actions.setActiveType(v as 'all' | TaskType))
-        dispatch(activeTasksModel.thunks.fetchTasks(v as 'all' | TaskType))
     }
 
     useEffect(() => {
-        dispatch(activeTasksModel.thunks.fetchTasks('all'))
-    }, [])
+        dispatch(activeTasksModel.thunks.fetchTasks(activeType))
+    }, [activeType])
 
     return (
         <Tabs 

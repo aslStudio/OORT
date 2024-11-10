@@ -12,7 +12,7 @@ export type FetchActiveTasksResponse = ResponseDefault<{
     time: TimeStamp
 }[]>
 
-export type FetchActiveTasksParams = TaskType | 'all'
+export type FetchActiveTasksParams = ('all' | TaskType)[]
 
 export type FetchExpandTaskResponse = ResponseDefault<{
     id: number
@@ -54,7 +54,7 @@ export type UploadVideoParams = {
 
 export type ActiveTasksApi = {
     fetch: (params: FetchActiveTasksParams) => Promise<FetchActiveTasksResponse>
-    fetchExpand: (params: FetchActiveTasksParams) => Promise<FetchExpandTaskResponse>
+    fetchExpand: (params: number | string) => Promise<FetchExpandTaskResponse>
     uploadPhotoResult: (params: UploadPhotoParams) => Promise<UploadPhotoResponse>
     uploadVideoResult: (params: UploadVideoParams) => Promise<UploadVideoResponse>
 }

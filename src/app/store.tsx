@@ -1,3 +1,4 @@
+import { tasksHistoryModel } from '@/entities/history/model'
 import { activeTasksModel, expandTasksModel } from '@/entities/tasks'
 import { referralModel } from '@/features/referral/model'
 import { uploadPhotoResultModel, uploadVideoResultModel } from '@/features/tasks'
@@ -10,6 +11,7 @@ const store = configureStore({
     reducer: {
         balance: balanceModel.reducer,
         activeTasks: activeTasksModel.reducer,
+        historyTasks: tasksHistoryModel.reducer,
         expandTasks: expandTasksModel.reducer,
         referral: referralModel.reducer,
         uploadPhotoResult: uploadPhotoResultModel.reducer,

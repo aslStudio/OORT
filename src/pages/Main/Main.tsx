@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 import { TabsCardLayout } from '@/shared/ui/TabsCardLayout'
 import { ActiveTaskList } from '@/widgets/activeTasks'
 import { ActiveTaskFilter } from '@/features/tasks'
+import { HistoryTaskFilter } from '@/features/tasks/HistoryTaskFilter'
+import { HistoryTasksList } from '@/widgets/tasksHistory'
 
 export const Main = () => {
     const { setHeaderColor } = useTelegram()
@@ -35,8 +37,8 @@ export const Main = () => {
                 )}
                 SecondComponent={(
                     <>
-                        <ActiveTaskFilter />
-                        <ActiveTaskList />
+                        <HistoryTaskFilter />
+                        <HistoryTasksList />
                     </>
                 )}
             />

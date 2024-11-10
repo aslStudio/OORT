@@ -17,6 +17,9 @@ import FileSize from './file-size.svg'
 import Response from './response.svg'
 import Link from './link.svg'
 import Add from './add.svg'
+import CheckedFilled from './checked-filled.svg'
+import ClockFilled from './clock-filled.svg'
+import CancelFilled from './cancel-filled.svg'
 
 export const icons = {
     'chevron-right-outline': RightChevron,
@@ -38,4 +41,7 @@ export const icons = {
     'response': Response,
     'link': Link,
     'add': Add,
+    'checked-filled': CheckedFilled,
+    'clock-filled': ClockFilled,
+    'cancel-filled': CancelFilled,
 }

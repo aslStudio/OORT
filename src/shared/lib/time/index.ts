@@ -13,3 +13,18 @@ export function formatTime(ms: TimeStamp) {
         return `${seconds} sec`;
     }
 }
+
+export function formatDate(ms: TimeStamp) {
+    const monthNames = [
+        "January", "February", "March", "April", 
+        "May", "June", "July", "August", 
+        "September", "October", "November", "December"
+    ];
+
+
+    const month = monthNames[new Date(ms).getMonth()]
+    const day = new Date(ms).getDate()
+    const year = new Date(ms).getFullYear()
+
+    return `${month} ${day}, ${year}`
+}

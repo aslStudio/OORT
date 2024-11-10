@@ -1,6 +1,6 @@
 import { getRandomInt } from '@/shared/lib/number'
 import { TaskDifficult, TaskType } from '../enums'
-import { ActiveTasksApi } from './types'
+import { ActiveTasksApi, FetchActiveTasksResponse } from './types'
 import { TimeStamp } from '@/shared/lib/types'
 
 const IMAGE_IDS = [0, 1, 2, 3, 5]
@@ -22,8 +22,10 @@ export const activeTaskApi: ActiveTasksApi = {
         }
 
         function getList() {
-            if (type === 'all') {
-                return Array(15).fill(1).map((_, key) => ({
+            let result = [] as FetchActiveTasksResponse['payload']
+
+            if (type.includes('all')) {
+                result = Array(15).fill(1).map((_, key) => ({
                     id: key,
                     type: getType(key),
                     img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
@@ -33,33 +35,43 @@ export const activeTaskApi: ActiveTasksApi = {
                     price: getRandomInt(1_000, 10_000),
                     time: getRandomInt(1, 5) * 60000 as TimeStamp,
                 }))
-            }
-            if (type === TaskType.IMAGE) {
-                return Array(5).fill(1).map((_, key) => ({
-                    id: IMAGE_IDS[key],
-                    type: TaskType.IMAGE,
-                    img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
-                    title: 'Autonomous Driving',
-                    description: `Your smartphone's power helps move AI progress forward. With OORT DataHub, your device aids in processing datasets that revolutionize our world and make it a better and safer place with AI technology. Together, we're moving humanity forward.`,
-                    difficult: getRandomInt(0, 1) as TaskDifficult,
-                    price: getRandomInt(1_000, 10_000),
-                    time: getRandomInt(1, 5) * 60000 as TimeStamp,
-                }))
-            }
-            if (type === TaskType.VIDEO) {
-                return Array(5).fill(1).map((_, key) => ({
-                    id: VIDEO_IDS[key],
-                    type: TaskType.VIDEO,
-                    img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
-                    title: 'Autonomous Driving',
-                    description: `Your smartphone's power helps move AI progress forward. With OORT DataHub, your device aids in processing datasets that revolutionize our world and make it a better and safer place with AI technology. Together, we're moving humanity forward.`,
-                    difficult: getRandomInt(0, 1) as TaskDifficult,
-                    price: getRandomInt(1_000, 10_000),
-                    time: getRandomInt(1, 5) * 60000 as TimeStamp,
-                }))
+            } else {
+                console.log(type)
+                if (type.includes(TaskType.IMAGE)) {
+                    result = [
+                        ...result,
+                        ...Array(5).fill(1).map((_, key) => ({
+                            id: IMAGE_IDS[key],
+                            type: TaskType.IMAGE,
+                            img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
+                            title: 'Autonomous Driving',
+                            description: `Your smartphone's power helps move AI progress forward. With OORT DataHub, your device aids in processing datasets that revolutionize our world and make it a better and safer place with AI technology. Together, we're moving humanity forward.`,
+                            difficult: getRandomInt(0, 1) as TaskDifficult,
+                            price: getRandomInt(1_000, 10_000),
+                            time: getRandomInt(1, 5) * 60000 as TimeStamp,
+                        })),
+                    ]
+                }
+                if (type.includes(TaskType.VIDEO)) {
+                    result = [
+                        ...result,
+                        ...Array(5).fill(1).map((_, key) => ({
+                            id: VIDEO_IDS[key],
+                            type: TaskType.VIDEO,
+                            img: 'https://randomwordgenerator.com/img/picture-generator/54e0d6444e53a414f1dc8460962e33791c3ad6e04e5074417c2d78d39444c4_640.jpg',
+                            title: 'Autonomous Driving',
+                            description: `Your smartphone's power helps move AI progress forward. With OORT DataHub, your device aids in processing datasets that revolutionize our world and make it a better and safer place with AI technology. Together, we're moving humanity forward.`,
+                            difficult: getRandomInt(0, 1) as TaskDifficult,
+                            price: getRandomInt(1_000, 10_000),
+                            time: getRandomInt(1, 5) * 60000 as TimeStamp,
+                        })),
+                    ]
+                }
             }
 
-            return []
+            console.log(result)
+
+            return result
         }
 
         return {

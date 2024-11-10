@@ -1,0 +1,16 @@
+.root {
+    position: fixed;
+    width: calc(100% - 40px);
+    top: 246px;
+    height: calc(100vh - 246px);
+    left: 20px;
+    overflow-y: scroll;
+
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.item + .item {
+    margin-top: 24px;
+}

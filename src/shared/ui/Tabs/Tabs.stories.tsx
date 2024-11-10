@@ -44,14 +44,24 @@ export const Default = {
         ] as TabsProps['data']
     },
     render: function Render(args: TabsProps) {
-        const [value, setValue] = useState(args.value)
+        const [value, setValue] = useState<(string | number)[]>(['all'])
 
         return (
             <Tabs 
                 value={value}
                 data={args.data}
                 isDisabled={args.isDisabled}
-                setValue={setValue}
+                setValue={v => {
+                    if (value.includes(v)) {
+                        const copy = value.filter(item => item !== v)
+                        setValue(copy)
+                    } else {
+                        setValue([
+                            ...value,
+                            v,
+                        ])
+                    }
+                }}
             />
         )
     }

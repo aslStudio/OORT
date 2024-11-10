@@ -47,7 +47,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
     return (
         <TransitionFade className={classes}>
             {!isPending && (
-                <div key={'isPending'}>
+                <div key={'notIsPending'}>
                     {list.map(item => (
                         <ActiveTaskCard 
                             key={item.id}
@@ -59,7 +59,7 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
                 </div>
             )}
             {isPending && (
-                <SkeletonWrapper key={'notIsPending'}>
+                <SkeletonWrapper key={'isPending'}>
                     {Array(3).fill(1).map((_, key) => (
                         <ActiveTaskCardSkeleton 
                             key={key}

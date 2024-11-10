@@ -8,7 +8,7 @@ import { Icon, IconProps } from "../Icon";
 import styles from './Tabs.module.scss'
 
 export type TabsProps = PropsDefault<{
-    value: number | string
+    value: (number | string)[]
     isDisabled?: boolean
     data: {
         id: number | string
@@ -43,14 +43,34 @@ const TabsComponent: React.FC<TabsProps> = ({
         return result.join(' ').trim()
     }
 
+    function isActive(id: number | string) {
+        return value.includes(id) 
+    }
+
+    function onClick(id: number | string) {
+        // if (value.length > 1 || value[0] !== id) {
+        //     if (value.includes(id)) {
+        //         const copy = value.filter(item => item !== id)
+        //         setValue(copy)
+        //         return
+        //     }
+    
+        //     setValue([
+        //         ...value,
+        //         id,
+        //     ])
+        // }
+        setValue(id)
+    }
+
     return (
         <div className={classes}>
             {data.map(item => (
                 <button
                     key={item.id}
-                    className={getItemClasses(item.id === value)}
+                    className={getItemClasses(isActive(item.id))}
                     disabled={isDisabled}
-                    onClick={() => setValue(item.id)}
+                    onClick={() => onClick(item.id)}
                 >
                     {item.icon && (
                         <Icon 
@@ -62,7 +82,7 @@ const TabsComponent: React.FC<TabsProps> = ({
                     )}
                     <p>{item.text}</p>
                     <AnimatePresence>
-                        {item.id === value && (
+                        {isActive(item.id) && (
                             <motion.div
                                 initial={{
                                     width: 0,
