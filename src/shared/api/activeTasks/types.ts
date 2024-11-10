@@ -22,7 +22,8 @@ export type FetchExpandTaskResponse = ResponseDefault<{
     details: string
     reward: number
     fileSize: string
-    duration: TimeStamp
+    time: TimeStamp
+    duration?: TimeStamp
     example: string
     task: string
 }>

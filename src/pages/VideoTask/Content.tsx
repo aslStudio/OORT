@@ -79,6 +79,7 @@ export const Content: React.FC<{
                     }}
                     onVideoUploaded={v => {
                         setValue(v)
+                        setBlob(null)
                         setStep(Step.VERIFY)
                     }}
                 />
@@ -101,9 +102,11 @@ export const Content: React.FC<{
             {step === Step.VERIFY && (
                 <Verify 
                     key={'Verify'}
-                    blob={blob!}
+                    value={value!}
+                    blob={blob}
                     onVideoUploaded={v => {
                         setValue(v)
+                        setBlob(null)
                         setStep(Step.VERIFY)
                     }}
                     onSubmit={onSubmit}

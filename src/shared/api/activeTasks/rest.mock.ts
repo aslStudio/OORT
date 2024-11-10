@@ -82,7 +82,7 @@ export const activeTaskApi: ActiveTasksApi = {
                     details: 'Please label the road signs, your effort will help make autonomous driving safer.',
                     reward: getRandomInt(1_000, 10_000),
                     fileSize: 'Up to 3MB',
-                    duration: getRandomInt(1, 5) * 60000 as TimeStamp,
+                    time: getRandomInt(1, 5) * 60000 as TimeStamp,
                     task: 'Please take a picture that looks similar to the example above.'
                 }
             }
@@ -100,6 +100,7 @@ export const activeTaskApi: ActiveTasksApi = {
                     details: 'Please label the road signs, your effort will help make autonomous driving safer.',
                     reward: getRandomInt(1_000, 10_000),
                     fileSize: 'Up to 3MB',
+                    time: getRandomInt(1, 5) * 60000 as TimeStamp,
                     duration: getRandomInt(1, 5) * 60000 as TimeStamp,
                     task: 'Please take a picture that looks similar to the example above.'
                 }
@@ -117,7 +118,7 @@ export const activeTaskApi: ActiveTasksApi = {
                 details: 'Please label the road signs, your effort will help make autonomous driving safer.',
                 reward: getRandomInt(1_000, 10_000),
                 fileSize: 'Up to 3MB',
-                duration: getRandomInt(1, 5) * 60000 as TimeStamp,
+                time: getRandomInt(1, 5) * 60000 as TimeStamp,
                 task: 'Please take a picture that looks similar to the example above.'
             }
         }

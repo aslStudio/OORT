@@ -9,12 +9,14 @@ import { VideoPlayer } from "@/shared/ui/VideoPlayer"
 import { Button } from "@/shared/ui"
 
 export type VerifyProps = {
-    blob: Blob
+    value: File
+    blob: Blob | null
     onSubmit: () => void
     onVideoUploaded: (v: File) => void
 }
 
 const VerifyComponent: React.FC<VerifyProps> = ({
+    value,
     blob,
     onSubmit,
     onVideoUploaded
@@ -41,9 +43,9 @@ const VerifyComponent: React.FC<VerifyProps> = ({
     }
 
     useEffect(() => {
-        const url = URL.createObjectURL(blob)
+        const url = URL.createObjectURL(blob ? blob : value)
         setPreview(url)
-    }, [blob])
+    }, [blob, value])
 
     return (
         <VerifyTask 

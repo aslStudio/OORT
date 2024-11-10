@@ -52,7 +52,7 @@ const ExpandTaskDetailsComponent: React.FC<ExpandTaskDetailsProps> = ({
                     <Cell 
                         icon={'file-size'}
                         title={duration.title}
-                        value={`Up to ${duration.value}`}
+                        value={`Up to ${formatTime(duration.value)}`}
                     />
                 </>  
             )}

@@ -28,6 +28,12 @@ export const Info: React.FC<{
                 reward: taskData.reward,
                 fileSize: taskData.fileSize,
                 time: taskData.time,
+                ...(taskData.duration && {
+                    duration: {
+                        title: 'Video Duration',
+                        value: taskData.duration,
+                    },
+                })
             }}
             onStart={onStart}
         />
