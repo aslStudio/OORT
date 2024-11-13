@@ -1,5 +1,9 @@
-import { PropsDefault } from "@/shared/lib/types";
-import React from "react";
+import React from "react"
+import {clsx} from "clsx"
+
+import { PropsDefault } from "@/shared/lib/types"
+
+import styles from './TextSection.module.scss'
 
 export type TextSectionProps = PropsDefault<{
     label: string
@@ -12,8 +16,11 @@ const TextSectionComponent: React.FC<TextSectionProps> = ({
     description
 }) => {
     return (
-        <div>
-            
+        <div className={clsx(styles.root, className)}>
+            <p className={styles.label}>{label}</p>
+            <div className={styles.content}>
+                <p>{description}</p>
+            </div>
         </div>
     )
 }

@@ -38,7 +38,7 @@ export const Content: React.FC<{
         if (value) {
             dispatch(uploadVideoResultModel.thunks.upload({
                 id,
-                img: value
+                video: value
             }))
         }
     }
@@ -116,7 +116,6 @@ export const Content: React.FC<{
                 <TaskResponse 
                     key={'Response'}
                     award={taskData.reward}
-                    story={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
                 />
             )}
         </TransitionFade>

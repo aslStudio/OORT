@@ -39,6 +39,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
     const mediaRecorder = useRef<MediaRecorder | null>(null);
     const array = useRef<Uint8Array | null>(null)
     const isLoop = useRef<boolean>(true)
+    const chunks = useRef<Blob[]>([])
 
     const buttonClasses = useMemo(() => [
        styles['button-result'],
@@ -68,14 +69,21 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
 
     function handleDataAvailable({ data }: BlobEvent) {
         if (data.size > 0) {
+            chunks.current = [
+                ...chunks.current,
+                data,
+            ]
+
             const newBlob = new Blob(
-                [data],
+                chunks.current,
                 { type: 'audio/mp3' }
             )
+            console.log(newBlob)
             setBlob(newBlob)
 
             const url = URL.createObjectURL(newBlob)
             audioRef.current = new Audio(url)
+            console.log(url)
             setURL(url)
 
             context.current = null
@@ -85,19 +93,25 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
         }
     }
 
-    function onStop() {
-        mediaRecorder.current?.stop()
-        isLoop.current = false
-        setBlob(blob)
-        setState(State.RESULT)
+    function onStop(v: 'continue' | 'pause') {
+        console.log(v)
+        if (v === 'pause') {
+            mediaRecorder.current?.stop()
+            isLoop.current = false
+            setBlob(blob)
+            setState(State.RESULT)
 
-        Array(40).fill(1).forEach((_, index) => {
-            wrapperRef.current!.children[index].classList.remove(styles['is-active'])
-            // @ts-ignore
-            wrapperRef.current!.children[index].style.height = `7px`
-            // @ts-ignore
-            wrapperRef.current!.children[index].style.opacity = 1
-        })
+            Array(40).fill(1).forEach((_, index) => {
+                wrapperRef.current!.children[index].classList.remove(styles['is-active'])
+                // @ts-ignore
+                wrapperRef.current!.children[index].style.height = `7px`
+                // @ts-ignore
+                wrapperRef.current!.children[index].style.opacity = 1
+            })
+        } else {
+            setState(State.RECORD)
+            onStart()
+        }
     }
 
     const onPlay = useCallback(() => {
@@ -161,6 +175,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
     }
 
     function onRetake() {
+        chunks.current = []
         setState(State.RECORD)
         onStart()
     }
@@ -179,7 +194,7 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
     }
 
     return (
-        <TransitionFade>
+        <TransitionFade className={styles.root}>
             {state === State.START && (
                 <Button
                     isWide={true}
@@ -221,7 +236,9 @@ export const AudioRecorder: React.FC<AudioRecorderProps> = ({
                                 styles.button,
                                 state === State.RESULT ? styles['is-recorded'] : ''
                             ].join(' ').trim()}
-                            onClick={onStop}
+                            onClick={() => onStop(
+                                state === State.RESULT ? 'continue' : 'pause'
+                            )}
                         />
                         <ButtonIcon 
                             className={buttonClasses}

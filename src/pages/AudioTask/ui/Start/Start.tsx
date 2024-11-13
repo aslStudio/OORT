@@ -6,11 +6,12 @@ import { TransitionFade } from "@/shared/ui/TransitionFade";
 import { StartTask } from "@/widgets/activeTasks";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import {TextSection} from "@/shared/ui/TextSection";
 
 export type StartProps = {
     id: ExpandTask['id']
     isLoading: boolean
-    onSubmit: () => void
+    onSubmit: (v: File) => void
 }
 
 enum State {
@@ -40,7 +41,11 @@ export const Start: React.FC<StartProps> = ({
                         />
                     )}
                     {state === State.RECORDER && (
-                        <></>
+                        <TextSection
+                            key={'State.RECORDER'}
+                            label={'Read this text:'}
+                            description={taskData.text ?? ''}
+                        />
                     )}
                 </TransitionFade>
             )}

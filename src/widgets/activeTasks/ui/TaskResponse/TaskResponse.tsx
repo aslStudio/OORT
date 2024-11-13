@@ -14,7 +14,6 @@ import styles from './TaskResponse.module.scss'
 
 export type TaskResponseProps = {
     award: number
-    story: string
 }
 
 const TaskResponseComponent: React.FC<TaskResponseProps> = ({

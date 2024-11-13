@@ -1,9 +1,9 @@
-import { activeTaskApi, UploadPhotoResponse } from "@/shared/api";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {activeTaskApi, UploadVideoResponse} from "@/shared/api";
 
 const upload = createAsyncThunk(
-    'feature/tasks/uploadVideoResult',
-    activeTaskApi.uploadVideoResult
+    'feature/tasks/uploadAudioResult',
+    activeTaskApi.uploadAudioResult
 )
 
 const initialState: {
@@ -16,8 +16,8 @@ const initialState: {
     errorCode: null,
 }
 
-const uploadSlice = createSlice({
-    name: 'feature/uploadVideoResult',
+const uploadAudioSlice = createSlice({
+    name: 'feature/uploadAudioResult',
     initialState,
     reducers: {
         reset: state => {
@@ -33,7 +33,7 @@ const uploadSlice = createSlice({
                 state.isSuccess = false
                 state.errorCode = null
             })
-            .addCase(upload.fulfilled, (state, { payload }: PayloadAction<UploadPhotoResponse>) => {
+            .addCase(upload.fulfilled, (state, { payload }: PayloadAction<UploadVideoResponse>) => {
                 state.isPending = false
                 if (payload.payload.status) {
                     state.isSuccess = true
@@ -41,13 +41,13 @@ const uploadSlice = createSlice({
                     state.errorCode = payload.payload.errorCode
                 }
             })
-    }
+        }
 })
 
-export const uploadVideoResultModel = {
-    reducer: uploadSlice.reducer,
-    actions: uploadSlice.actions,
+export const uploadAudioResultModel = {
+    reducer: uploadAudioSlice.reducer,
+    actions: uploadAudioSlice.actions,
     thunks: {
-        upload,
+        upload
     }
 }

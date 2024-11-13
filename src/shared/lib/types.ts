@@ -9,6 +9,7 @@ export enum RouterPathes {
     MAIN = '/',
     PHOTO_TASK = '/photo-task/:id',
     VIDEO_TASK = '/video-task/:id',
+    AUDIO_TASK = '/audio-task/:id',
     OTHER = '/other'
 }
 

@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Route, Routes, useLocation} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom"
 
 import { Main } from "@/pages/Main/Main"
-import { ImageTask } from "@/pages/ImageTask/ImageTask";
-import { VideoTask } from "@/pages/VideoTask/VideoTask";
+import { ImageTask } from "@/pages/ImageTask/ImageTask"
+import { VideoTask } from "@/pages/VideoTask/VideoTask"
+import { AudioTask } from "@/pages/AudioTask/AudioTask"
 
 import { RouterPathes } from "@/shared/lib/types";
 
@@ -39,6 +40,10 @@ export const RouterView = React.memo(() => {
                 <Route 
                     path={RouterPathes.VIDEO_TASK}
                     element={<VideoTask />}
+                />
+                <Route
+                    path={RouterPathes.AUDIO_TASK}
+                    element={<AudioTask />}
                 />
             </Routes>
         </div>

@@ -25,4 +25,5 @@ export type ExpandTask = {
     fileSize: string
     time: TimeStamp
     duration?: TimeStamp
+    text?: string
 }

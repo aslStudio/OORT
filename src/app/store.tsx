@@ -1,11 +1,18 @@
-import { tasksHistoryModel } from '@/entities/history/model'
-import { activeTasksModel, expandTasksModel } from '@/entities/tasks'
-import { referralModel } from '@/features/referral/model'
-import { uploadPhotoResultModel, uploadVideoResultModel } from '@/features/tasks'
-import { balanceModel } from '@/widgets/balance'
-import { configureStore } from '@reduxjs/toolkit'
 import React from 'react'
 import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
+
+import { balanceModel } from '@/widgets/balance'
+
+import { referralModel } from '@/features/referral/model'
+import {
+    uploadAudioResultModel,
+    uploadPhotoResultModel,
+    uploadVideoResultModel
+} from '@/features/tasks'
+
+import { tasksHistoryModel } from '@/entities/history/model'
+import { activeTasksModel, expandTasksModel } from '@/entities/tasks'
 
 const store = configureStore({
     reducer: {
@@ -16,6 +23,7 @@ const store = configureStore({
         referral: referralModel.reducer,
         uploadPhotoResult: uploadPhotoResultModel.reducer,
         uploadVideoResult: uploadVideoResultModel.reducer,
+        uploadAudioResult: uploadAudioResultModel.reducer,
     }
 })
 

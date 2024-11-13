@@ -26,6 +26,7 @@ export type FetchExpandTaskResponse = ResponseDefault<{
     duration?: TimeStamp
     example: string
     task: string
+    text?: string
 }>
 
 export type FetchExpandTaskParams = {
@@ -49,12 +50,24 @@ export type UploadVideoResponse = ResponseDefault<{
 
 export type UploadVideoParams = {
     id: number
-    img: File
+    video: File
 }
+
+export type UploadAudioParams = {
+    id: number
+    audio: File
+}
+
+export type UploadAudioResponse = ResponseDefault<{
+    status: boolean
+    errorCode: number
+}>
+
 
 export type ActiveTasksApi = {
     fetch: (params: FetchActiveTasksParams) => Promise<FetchActiveTasksResponse>
     fetchExpand: (params: number | string) => Promise<FetchExpandTaskResponse>
     uploadPhotoResult: (params: UploadPhotoParams) => Promise<UploadPhotoResponse>
     uploadVideoResult: (params: UploadVideoParams) => Promise<UploadVideoResponse>
+    uploadAudioResult: (params: UploadAudioParams) => Promise<UploadAudioResponse>
 }

@@ -16,6 +16,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.3",
+    "clsx": "^2.1.1",
     "effector": "^23.2.2",
     "effector-react": "^23.2.1",
     "font-generator": "^1.0.1",

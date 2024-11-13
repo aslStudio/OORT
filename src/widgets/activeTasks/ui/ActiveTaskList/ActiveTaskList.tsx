@@ -1,20 +1,20 @@
 import React from "react"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import {useSelector} from "react-redux"
+import {useNavigate} from "react-router-dom"
 
-import { RootState } from "@/app/store"
+import {RootState} from "@/app/store"
 
-import { ActiveTaskCard, ActiveTaskCardSkeleton, expandTasksModel } from "@/entities/tasks"
-import { ActiveTaskItem } from "@/entities/tasks/model/types"
+import {ActiveTaskCard, ActiveTaskCardSkeleton} from "@/entities/tasks"
+import {ActiveTaskItem} from "@/entities/tasks/model/types"
 
-import { PropsDefault, RouterPathes } from "@/shared/lib/types"
-import { TransitionFade } from "@/shared/ui/TransitionFade"
-import { SkeletonWrapper } from "@/shared/ui/SkeletonWrapper"
-import { TaskType } from "@/shared/api/enums"
+import {PropsDefault, RouterPathes} from "@/shared/lib/types"
+import {TransitionFade} from "@/shared/ui/TransitionFade"
+import {SkeletonWrapper} from "@/shared/ui/SkeletonWrapper"
+import {TaskType} from "@/shared/api/enums"
 
 import styles from './ActiveTaskList.module.scss'
-import { LazyImage } from "@/shared/ui/LazyImage/LazyImage"
-import { images } from "@/shared/assets/images"
+import {LazyImage} from "@/shared/ui/LazyImage/LazyImage"
+import {images} from "@/shared/assets/images"
 
 export const ActiveTaskList: React.FC<PropsDefault> = ({
     className
@@ -41,6 +41,12 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
         if (item.type === TaskType.VIDEO) {
             navigate(
                 RouterPathes.VIDEO_TASK.replace(':id', `${item.id}`)
+            )
+            return
+        }
+        if (item.type === TaskType.AUDIO) {
+            navigate(
+                RouterPathes.AUDIO_TASK.replace(':id', `${item.id}`)
             )
             return
         }
