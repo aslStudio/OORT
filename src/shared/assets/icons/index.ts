@@ -20,6 +20,7 @@ import Add from './add.svg'
 import CheckedFilled from './checked-filled.svg'
 import ClockFilled from './clock-filled.svg'
 import CancelFilled from './cancel-filled.svg'
+import Play from './play.svg'
 
 export const icons = {
     'chevron-right-outline': RightChevron,
@@ -44,4 +45,5 @@ export const icons = {
     'checked-filled': CheckedFilled,
     'clock-filled': ClockFilled,
     'cancel-filled': CancelFilled,
+    'play': Play,
 }

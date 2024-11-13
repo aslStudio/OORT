@@ -2,10 +2,11 @@ import React from "react"
 
 import styles from './StartTask.module.scss'
 import { FloatingButtons } from "@/shared/ui/FloatingButtons"
+import { TransitionFade } from "@/shared/ui/TransitionFade"
 
 export type StartTaskProps = {
     PreviewComponent: React.ReactNode
-    task: string
+    task?: string
     ActionsComponent: React.ReactNode
 }
 
@@ -18,8 +19,14 @@ const StartTaskComponent: React.FC<StartTaskProps> = ({
         <div>
             <h1 className={styles.title}>Start Task</h1>
             {PreviewComponent}
-            <h2 className={styles['details-title']}>Example</h2>
-            <p className={styles.details}>{task}</p>
+            <TransitionFade>
+                {task && (
+                    <div key={'TaskInfo'}>
+                        <h2 className={styles['details-title']}>Example</h2>
+                        <p className={styles.details}>{task}</p>
+                    </div>
+                )}
+            </TransitionFade>
             <FloatingButtons
                 childrenCount={2}
             >

@@ -1,0 +1,83 @@
+.wrapper {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.item {
+    width: 4px;
+    height: 7px;
+    max-height: 80px;
+    border-radius: 2px;
+    background: #e6e8ea;
+}
+
+.is-active {
+    background: #0058ff;
+}
+
+.button {
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+
+    background-color: #FF3932;
+    border: 2px solid #FF3932;
+    
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+    transition-property: background-color;
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+
+        background-color: #FFF9F9;
+
+        transition: 0.3s ease;
+        transition-property: background-color;
+    }
+
+    &.is-recorded {
+        background-color: #FFF9F9;
+
+        &::after {
+            background-color: #FF3932;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+.button-result {
+    transition: 0.3s ease;
+    transition-property: opacity;
+
+    opacity: 1;
+}
+
+.is-hidden {
+    opacity: 0;
+}

@@ -22,6 +22,8 @@
     "framer-motion": "^11.11.11",
     "handy-svg": "^1.0.8",
     "react": "^18.3.1",
+    "react-audio-visualize": "^1.2.0",
+    "react-audio-visualizer": "^1.0.3",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-lottie": "^1.2.4",
