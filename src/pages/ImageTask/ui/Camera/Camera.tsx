@@ -3,6 +3,8 @@ import { createPortal } from "react-dom"
 import Webcam from "react-webcam"
 
 import styles from './Camera.module.scss'
+import {TransitionFade} from "@/shared/ui/TransitionFade";
+import {Loader} from "@/shared/ui/Loader";
 
 export type CameraProps = {
     onTakePhoto: (v: File) => void
@@ -57,6 +59,14 @@ export const Camera: React.FC<CameraProps> = ({
                     setIsLoading(false)
                 }}
             />
+            <TransitionFade className={styles.loader}>
+                {isLoading && (
+                    <Loader
+                        size={'m'}
+                        color={'white'}
+                    />
+                )}
+            </TransitionFade>
             <button 
                 className={styles.button}
                 onClick={onClick}
