@@ -67,14 +67,16 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
 
     return (
         <div className={classes}>
-            {list.map(item => (
-                <ActiveTaskCard
-                    key={item.id}
-                    className={styles.item}
-                    {...item}
-                    onClick={() => onClick(item)}
-                />
-            ))}
+            <div>
+                {list.map(item => (
+                    <ActiveTaskCard
+                        key={item.id}
+                        className={styles.item}
+                        {...item}
+                        onClick={() => onClick(item)}
+                    />
+                ))}
+            </div>
         </div>
     )
 
