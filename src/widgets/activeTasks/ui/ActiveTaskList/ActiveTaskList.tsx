@@ -53,43 +53,56 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
     }
 
     return (
-        <TransitionFade className={classes}>
-            {!isPending && list.length && (
-                <div key={'Content'}>
-                    {list.map(item => (
-                        <ActiveTaskCard 
-                            key={item.id}
-                            className={styles.item}
-                            {...item}
-                            onClick={() => onClick(item)}
-                        />
-                    ))}
-                </div>
-            )}
-            {!isPending && !list.length && (
-                <div 
-                    key={'Empty'}
-                    className={styles.empty}    
-                >
-                    <LazyImage 
-                        className={styles.image}
-                        src={images.Decorations.Empty}
-                        alt={'empty'}
-                        skeletonMinHeight={160}
-                    />
-                    <p>There are no any mission yet</p>
-                </div>
-            )}
-            {isPending && (
-                <SkeletonWrapper key={'Skeleton'}>
-                    {Array(3).fill(1).map((_, key) => (
-                        <ActiveTaskCardSkeleton 
-                            key={key}
-                            className={styles.item}
-                        />
-                    ))}
-                </SkeletonWrapper>
-            )}
-        </TransitionFade>
+        <div className={classes}>
+            {list.map(item => (
+                <ActiveTaskCard
+                    key={item.id}
+                    className={styles.item}
+                    {...item}
+                    onClick={() => onClick(item)}
+                />
+            ))}
+        </div>
     )
+
+    // return (
+    //     <TransitionFade className={classes}>
+    //         {!isPending && list.length && (
+    //             <div key={'Content'}>
+    //                 {list.map(item => (
+    //                     <ActiveTaskCard
+    //                         key={item.id}
+    //                         className={styles.item}
+    //                         {...item}
+    //                         onClick={() => onClick(item)}
+    //                     />
+    //                 ))}
+    //             </div>
+    //         )}
+    //         {!isPending && !list.length && (
+    //             <div
+    //                 key={'Empty'}
+    //                 className={styles.empty}
+    //             >
+    //                 <LazyImage
+    //                     className={styles.image}
+    //                     src={images.Decorations.Empty}
+    //                     alt={'empty'}
+    //                     skeletonMinHeight={160}
+    //                 />
+    //                 <p>There are no any mission yet</p>
+    //             </div>
+    //         )}
+    //         {isPending && (
+    //             <SkeletonWrapper key={'Skeleton'}>
+    //                 {Array(3).fill(1).map((_, key) => (
+    //                     <ActiveTaskCardSkeleton
+    //                         key={key}
+    //                         className={styles.item}
+    //                     />
+    //                 ))}
+    //             </SkeletonWrapper>
+    //         )}
+    //     </TransitionFade>
+    // )
 }

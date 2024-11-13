@@ -15,7 +15,6 @@ const TransitionFadeComponent = ({
     delay = 0,
 }: TransitionFadeProps) => {
     const childrenList = Array.isArray(children) ? children : [children]
-    const mode = childrenList.length > 1 ? 'wait' : 'sync'
 
     return (
         <AnimatePresence mode={'wait'} initial={false}>
