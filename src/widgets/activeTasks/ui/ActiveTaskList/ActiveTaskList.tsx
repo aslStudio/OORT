@@ -53,17 +53,28 @@ export const ActiveTaskList: React.FC<PropsDefault> = ({
     }
 
     return (
-        <div className={classes}>
-            {list.map(item => (
-                <ActiveTaskCard
-                    key={item.id}
+        <SkeletonWrapper key={'Skeleton'} className={classes}>
+            {Array(3).fill(1).map((_, key) => (
+                <ActiveTaskCardSkeleton
+                    key={key}
                     className={styles.item}
-                    {...item}
-                    onClick={() => onClick(item)}
                 />
             ))}
-        </div>
+        </SkeletonWrapper>
     )
+
+    // return (
+    //     <div className={classes}>
+    //         {list.map(item => (
+    //             <ActiveTaskCard
+    //                 key={item.id}
+    //                 className={styles.item}
+    //                 {...item}
+    //                 onClick={() => onClick(item)}
+    //             />
+    //         ))}
+    //     </div>
+    // )
 
     // return (
     //     <TransitionFade className={classes}>
