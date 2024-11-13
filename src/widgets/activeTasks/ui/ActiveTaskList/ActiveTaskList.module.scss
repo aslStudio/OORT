@@ -6,6 +6,9 @@
     left: 20px;
     overflow-y: scroll;
 
+    display: flex;
+    flex-direction: column;
+
     box-sizing: border-box;
     padding-top: 20px;
     padding-bottom: 100px;
