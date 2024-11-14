@@ -8,10 +8,10 @@ import { HistoryTaskCard, HistoryTaskCardSkeleton } from '@/entities/history'
 import { PropsDefault } from '@/shared/lib/types'
 import { SkeletonWrapper } from '@/shared/ui/SkeletonWrapper'
 import { TransitionFade } from '@/shared/ui/TransitionFade'
-
-import styles from './HistoryTasksList.module.scss'
 import { LazyImage } from '@/shared/ui/LazyImage/LazyImage'
 import { images } from '@/shared/assets/images'
+
+import styles from './HistoryTasksList.module.scss'
 
 export const HistoryTasksList: React.FC<PropsDefault> = ({
     className
